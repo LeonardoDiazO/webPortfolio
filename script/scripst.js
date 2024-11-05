@@ -57,6 +57,31 @@ function loadTranslations() {
 document.addEventListener("DOMContentLoaded", loadTranslations);
 
 
+// scripts.js
+function changeLanguage() {
+    const selectedLang = document.getElementById("language-selector").value;
+    const elementsToTranslate = {
+        inicio: document.querySelector("#nav a[href='#inicio']"),
+        sobreMi: document.querySelector("#nav a[href='#sobremi']"),
+        skills: document.querySelector("#nav a[href='#skills']"),
+        curriculum: document.querySelector("#nav a[href='#curriculum']"),
+        portfolio: document.querySelector("#nav a[href='#portfolio']"),
+        contacto: document.querySelector("#nav a[href='#contacto']"),
+        nombre: document.querySelector("input[placeholder='Tú Nombre']"),
+        telefono: document.querySelector("input[placeholder='Número telefónico']"),
+        correo: document.querySelector("input[placeholder='Dirección de correo']"),
+        tema: document.querySelector("input[placeholder='Tema']"),
+        mensaje: document.querySelector("textarea[placeholder='Mensaje']"),
+        enviar: Array.from(document.querySelectorAll("button")).find(button => button.textContent.trim().includes("Enviar Mensaje")),
+        descargarCV: Array.from(document.querySelectorAll("button")).find(button => button.textContent.trim().includes("Descargar CV")),    
+        // ingeniero: document.querySelector(".contenido-banner h2"),
+    };
+
+    for (const [key, element] of Object.entries(elementsToTranslate)) {
+        if (element) element.textContent = translations[selectedLang][key];
+    }
+}
+
 // const socialLinksData = [
 //     { name: "Facebook", url: "https://www.facebook.com/tuusuario", className: "facebook" },
 //     { name: "Twitter", url: "https://www.twitter.com/tuusuario", className: "twitter" },
