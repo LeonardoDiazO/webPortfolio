@@ -174,7 +174,7 @@ html{
     flex-wrap: wrap;
 }
 .sobremi .fila .col .contenedor-intereses .interes{
-    width: 100px;
+    width: 120px;
     height: 100px;
     background-color: #252A2E;
     border-radius: 10px;
@@ -184,6 +184,8 @@ html{
     align-items: center;
     justify-content: center;
     transition: .3s;
+    text-align: center;
+    font-size: 12px;
 }.sobremi .fila .col .contenedor-intereses .interes:hover{
     background-color: #1CB698;
 }
@@ -258,6 +260,25 @@ html{
     position: relative;
     margin-bottom: 30px;
 }
+
+.barra-skill {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.progreso {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #ff8c00, #ff4500);
+    border-radius: 5px;
+    transition: width 1.5s ease-in-out;
+}
+
 .skills .skill .progreso{
     background-color: #1CB698;
     position: absolute;
@@ -314,7 +335,7 @@ footer .arriba {
 }
 @keyframes javascript {
     0%{width: 0%;}
-    100%{width: 75%;}
+    100%{width: 65%;}
 }
 
 .skills .skill .htmlcss{
@@ -323,7 +344,7 @@ footer .arriba {
 }
 @keyframes htmlcss {
     0%{width: 0%;}
-    100%{width: 89%;}
+    100%{width: 80%;}
 }
 
 .skills .skill .photoshop{
@@ -332,7 +353,7 @@ footer .arriba {
 }
 @keyframes photoshop {
     0%{width: 0%;}
-    100%{width: 95%;}
+    100%{width: 60%;}
 }
 
 .skills .skill .wordpress{
@@ -341,7 +362,7 @@ footer .arriba {
 }
 @keyframes wordpress {
     0%{width: 0%;}
-    100%{width: 81%;}
+    100%{width: 80%;}
 }
 
 .skills .skill .drupal{
@@ -350,7 +371,7 @@ footer .arriba {
 }
 @keyframes drupal {
     0%{width: 0%;}
-    100%{width: 55%;}
+    100%{width: 50%;}
 }
 
 .skills .skill .comunicacion{
@@ -377,7 +398,7 @@ footer .arriba {
 }
 @keyframes creatividad {
     0%{width: 0%;}
-    100%{width: 99%;}
+    100%{width: 80%;}
 }
 
 .skills .skill .dedicacion{
@@ -395,7 +416,7 @@ footer .arriba {
 }
 @keyframes proyect {
     0%{width: 0%;}
-    100%{width: 94%;}
+    100%{width: 60%;}
 }
 /* SECCION CURRICULUM */
 .curriculum{
@@ -504,61 +525,90 @@ footer .arriba {
     bottom: 4px;
 }
 /* SECCION PORTFOLIO */
-.portfolio{
+.portfolio {
     background-color: #252A2E;
     color: #fff;
     padding: 50px 20px;
 }
-.portfolio .contenido-seccion{
-    max-width: 1100px;
+
+.portfolio .contenido-seccion {
+    max-width: 1400px; /* Aumenta el ancho máximo */
+    width: 90%; /* Se adapta a la pantalla */
     margin: auto;
 }
-.portfolio h2{
+
+.portfolio h2 {
     font-size: 48px;
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
 }
-.portfolio .galeria{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+
+/* Galería con grid para una mejor distribución */
+.portfolio .galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ajuste responsivo */
+    gap: 20px; /* Espaciado entre proyectos */
+    justify-items: center; /* Centra las tarjetas */
 }
-.portfolio .galeria .proyecto{
+
+.portfolio .proyecto {
     position: relative;
-    max-width: 340px;
-    height: fit-content;
-    margin: 10px;
+    width: 100%;
+    max-width: 350px; /* Ajusta el tamaño de los proyectos */
     cursor: pointer;
 }
-.portfolio .galeria .proyecto img{
+
+.portfolio .proyecto img {
     width: 100%;
     display: block;
+    border-radius: 8px; /* Bordes redondeados para mejor apariencia */
 }
-.portfolio .galeria .proyecto .overlay{
+
+/* Efecto de overlay */
+.portfolio .proyecto .overlay {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    text-align: center;
-    background: linear-gradient(rgba(28,182,152,.8), rgba(28,182,152,.8));
+    background: rgba(28, 182, 152, 0.85);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: 1s;
+    align-items: center;
+    text-align: center;
     font-size: 18px;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 8px;
 }
-.portfolio .galeria .proyecto .overlay h3{
-    margin-bottom: 20px;
-    transition: 1s;
-}
-.portfolio .galeria .proyecto .overlay:hover{
+
+.portfolio .proyecto:hover .overlay {
     opacity: 1;
 }
-.portfolio .galeria .proyecto .overlay:hover h3{
-    margin-bottom: 0px;
+
+/* Espaciado y visibilidad del título */
+.portfolio .overlay h3 {
+    margin-bottom: 15px;
+    transition: 0.5s;
+}
+
+.portfolio .overlay a {
+    color: #fff;
+    background: #ff6600;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.portfolio .overlay a:hover {
+    background: #ff4500;
 }
 /* SECCION CONTACTO */
 .contacto{
@@ -682,6 +732,29 @@ footer .arriba{
     line-height: 50px;
     font-size: 18px;
 }
+.contacto .fila {
+    position: relative; /* Para que el botón se posicione en relación con esta sección */
+}
+
+.whatsapp-chat {
+    position: absolute;
+    right: -60px; /* Ajusta según el diseño */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #25D366;
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    z-index: 10; /* Suficiente para que no quede oculto */
+}
+.whatsapp-chat:hover {
+    background-color: #1EBE5D;
+}
+
+
 /* SECCION RESPONSIVE */
 @media screen and (max-width:980px){
     nav{
