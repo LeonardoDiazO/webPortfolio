@@ -1,25 +1,26 @@
 let menuVisible = false;
 //Función que oculta o muestra el menu
-function mostrarOcultarMenu(){
-    if(menuVisible){
-        document.getElementById("nav").classList ="";
+function mostrarOcultarMenu() {
+    if (menuVisible) {
+        document.getElementById("nav").classList = "";
         menuVisible = false;
-    }else{
-        document.getElementById("nav").classList ="responsive";
+    } else {
+        document.getElementById("nav").classList = "responsive";
         menuVisible = true;
     }
 }
 
-function seleccionar(){
+
+function seleccionar() {
     //oculto el menu una vez que selecciono una opcion
     document.getElementById("nav").classList = "";
     menuVisible = false;
 }
 //Funcion que aplica las animaciones de las habilidades
-function efectoHabilidades(){
+function efectoHabilidades() {
     var skills = document.getElementById("skills");
     var distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
-    if(distancia_skills >= 300){
+    if (distancia_skills >= 300) {
         let habilidades = document.getElementsByClassName("progreso");
         habilidades[0].classList.add("javascript");
         habilidades[1].classList.add("htmlcss");
@@ -36,25 +37,25 @@ function efectoHabilidades(){
 
 
 //detecto el scrolling para aplicar la animacion de la barra de habilidades
-window.onscroll = function(){
+window.onscroll = function () {
     efectoHabilidades();
-} 
-
-
-function loadTranslations() {
-    const userLang = navigator.language || navigator.userLanguage;
-    const lang = userLang.split('-')[0]; // Obtener solo la parte principal del idioma
-
-    // Si el idioma detectado está en las traducciones, úsalo; si no, usa español (es) como predeterminado
-    const texts = translations[lang] || translations["es"];
-
-    // Cambiar los textos en la página
-    document.title = texts.title;
-    document.querySelector("h1").textContent = texts.heading;
 }
 
+
+// function loadTranslations() {
+//     const userLang = navigator.language || navigator.userLanguage;
+//     const lang = userLang.split('-')[0]; // Obtener solo la parte principal del idioma
+
+//     // Si el idioma detectado está en las traducciones, úsalo; si no, usa español (es) como predeterminado
+//     const texts = translations[lang] || translations["es"];
+
+//     // Cambiar los textos en la página
+//     document.title = texts.title;
+//     document.querySelector("h1").textContent = texts.heading;
+// }
+
 // Llamar a la función cuando la página cargue
-document.addEventListener("DOMContentLoaded", loadTranslations);
+// document.addEventListener("DOMContentLoaded", loadTranslations);
 
 
 // scripts.js
@@ -73,7 +74,7 @@ function changeLanguage() {
         tema: document.querySelector("input[placeholder='Tema']"),
         mensaje: document.querySelector("textarea[placeholder='Mensaje']"),
         enviar: Array.from(document.querySelectorAll("button")).find(button => button.textContent.trim().includes("Enviar Mensaje")),
-        descargarCV: Array.from(document.querySelectorAll("button")).find(button => button.textContent.trim().includes("Descargar CV")),    
+        descargarCV: Array.from(document.querySelectorAll("button")).find(button => button.textContent.trim().includes("Descargar CV")),
         // ingeniero: document.querySelector(".contenido-banner h2"),
     };
 
@@ -102,5 +103,48 @@ function changeLanguage() {
 // }
 
 // window.onload = loadSocialLinks;
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    function animateSkills() {
+        let skills = document.querySelectorAll(".progreso");
+        let windowHeight = window.innerHeight;
+
+        skills.forEach(skill => {
+            let skillTop = skill.getBoundingClientRect().top;
+            if (skillTop < windowHeight) {
+                let percentage = skill.getAttribute("data-percent");
+                skill.style.width = percentage + "%";
+            }
+        });
+    }
+
+    // Ejecuta la animación cuando la página se carga y cuando se hace scroll
+    window.addEventListener("scroll", animateSkills);
+    animateSkills(); // Para activar en carga inicial si ya están en pantalla
+});
+
+
+document.getElementById("send-whatsapp").addEventListener("click", function () {
+    // Número de WhatsApp al que quieres enviar el mensaje (pon tu número aquí con código de país)
+    let phoneNumber = "+573016805257"; // Cambia esto por tu número de WhatsApp con código de país
+
+    // Obtener los valores del formulario
+    let name = document.getElementById("from_name").value;
+    let phone = document.getElementById("from_phone").value;
+    let email = document.getElementById("from_email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    // Crear el mensaje con los datos
+    let text = `Hola! Mi nombre es *${name}* (%2B${phone})%0A📧 Email: ${email}%0A📌 Asunto: ${subject}%0A📝 Mensaje: ${message}`;
+
+    // Crear el enlace de WhatsApp
+    let whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+
+    // Redirigir al usuario a WhatsApp
+    window.open(whatsappURL, "_blank");
+});
+
 
 
