@@ -1,11 +1,152 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
 /* Paleta de colores */
 :root {
-    --fondo-principal: #0A192F;
-    --fondo-secundario: #112240;
-    --color-destacado: #64FFDA;
-    --texto-principal: #FFFFFF;
-    --texto-secundario: #8892B0;
+    --fondo-principal: #0D0A1F;
+    --fondo-secundario: #161B30;
+    --color-destacado: #00E5FF;
+    --color-neon: #00FFC6;
+    --texto-principal: #F0F0F0;
+    --texto-secundario: #B0B8D1;
+    --sombra-neon: 0 0 10px rgba(0, 255, 198, 0.7), 0 0 20px rgba(0, 255, 198, 0.5);
+}
+
+/* Fondo global */
+body {
+    background: var(--fondo-principal);
+    color: var(--texto-principal);
+}
+
+/* TITULOS DESTACADOS */
+h2 {
+    font-size: 52px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-destacado);
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 4px;
+    background: var(--color-neon);
+    margin: 12px auto 0;
+    border-radius: 2px;
+    box-shadow: var(--sombra-neon);
+}
+
+/* BOTONES MODERNOS */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--color-neon);
+}
+
+/* LINKS Y BOTONES SOCIAL */
+.redes a {
+    background: transparent;
+    color: var(--color-destacado);
+    border: 2px solid var(--color-neon);
+    transition: all 0.4s ease;
+}
+
+.redes a:hover {
+    background: var(--color-neon);
+    color: var(--fondo-principal);
+    box-shadow: var(--sombra-neon);
+    transform: scale(1.1);
+}
+
+/* NAV BAR */
+.contenedor-header {
+    background: rgba(13, 10, 31, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* PORTAFOLIO */
+.portfolio .proyecto img {
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio .proyecto:hover img {
+    transform: scale(1.05);
+    box-shadow: var(--sombra-neon);
+}
+
+/* OVERLAY CON NEON */
+.portfolio .proyecto .overlay {
+    background: rgba(0, 229, 255, 0.9);
+    color: var(--fondo-principal);
+    box-shadow: var(--sombra-neon);
+}
+
+/* HOVER MENÚ */
+.contenedor-header nav ul li a:hover {
+    color: var(--color-neon);
+    text-shadow: var(--sombra-neon);
+}
+
+/* BARRA SKILLS */
+.skills .skill .barra-skill {
+    background: var(--fondo-secundario);
+}
+
+.skills .skill .progreso {
+    background: linear-gradient(90deg, var(--color-neon), var(--color-destacado));
+    height: 8px;
+    border-radius: 5px;
+    box-shadow: var(--sombra-neon);
+}
+
+/* FOOTER */
+footer {
+    background: var(--fondo-secundario);
+    color: var(--texto-principal);
+}
+
+footer .arriba {
+    background: var(--color-neon);
+    box-shadow: var(--sombra-neon);
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp-chat {
+    background: linear-gradient(135deg, #25D366, #00FFC6);
+    box-shadow: var(--sombra-neon);
+    transition: all 0.4s ease;
+}
+
+.whatsapp-chat:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--color-neon);
+}
+
+/* SOMBRAS EN SECCIONES */
+.inicio .contenido-banner, 
+.sobremi .fila .col .contenedor-intereses .interes,
+.curriculum .fila .item,
+.portfolio .proyecto,
+.contacto .col .info {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.inicio .contenido-banner:hover,
+.sobremi .fila .col .contenedor-intereses .interes:hover {
+    box-shadow: var(--sombra-neon);
+}
+
+/* EFECTO APARICIÓN */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.inicio, .sobremi, .skills, .curriculum, .portfolio, .contacto {
+    animation: fadeIn 1s ease-in-out;
 }
 
 *{
