@@ -6,10 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/perfil.jpeg" type="image/x-icon">
+    <link rel="icon" href="img/perfil2.png" type="image/x-icon">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,13 +18,8 @@
 </head>
 
 <body>
-    <!-- MENU ENCABEZADO -->
     <div class="contenedor-header">
         <header>
-            <!-- <select id="language-selector" onchange="changeLanguage()">
-                <option value="es">Español</option>
-                <option value="en">English</option>
-            </select> -->
             <div class="logo">
                 <a href="">Leonardo Díaz</a>
             </div>
@@ -38,6 +31,15 @@
                     <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
                     <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
                     <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+                    <li>            
+                        <div>
+                            <label for="theme-select" style="margin-left: 10%;">TEMA:</label>
+                            <select id="theme-select">
+                                <option value="dark">Oscuro</option>
+                                <option value="light">Claro</option>
+                            </select>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <div class="nav-responsive" onclick="mostrarOcultarMenu()">
@@ -46,7 +48,6 @@
         </header>
     </div>
 
-    <!-- SECCION INICIO -->
     <section id="inicio" class="inicio">
         <div class="contenido-banner">
             <div class="contenedor-img">
@@ -64,7 +65,6 @@
         </div>
     </section>
 
-    <!-- SECCION SOBRE MI -->
     <section id="sobremi" class="sobremi">
         <div class="contenido-seccion">
             <h2>Sobre Mí</h2>
@@ -76,8 +76,13 @@
                 de equipos, enfoque al cliente y cumplimiento de objetivos estratégicos. Combino mi conocimiento técnico
                 y mi visión de negocio para aportar valor a los proyectos en los que participo.
             </p>
+
+            <button
+                onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
+                Descargar CV <i class="fa-solid fa-download"></i>
+                <span class="overlay"></span>
+            </button>
             <div class="fila">
-                <!-- datos personales -->
                 <div class="col">
                     <h3>Datos Personales</h3>
                     <ul>
@@ -96,7 +101,6 @@
                     </ul>
                 </div>
 
-                <!-- intereses -->
                 <div class="col">
                     <h3>Intereses</h3>
                     <div class="contenedor-intereses">
@@ -120,43 +124,17 @@
                             <i class="fa-brands fa-github"></i>
                             <span>CÓDIGO ABIERTO</span>
                         </div>
-                        <!-- <div class="interes">
-                            <i class="fa-solid fa-palette"></i>
-                            <span>DISEÑO UX/UI</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-cloud"></i>
-                            <span>CLOUD COMPUTING</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span>MACHINE LEARNING</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-bitcoin-sign"></i>
-                            <span>BLOCKCHAIN</span>
-                        </div>
-                        <div class="interes">
-                            <i class="fa-solid fa-terminal"></i>
-                            <span>AUTOMATIZACIÓN</span>
-                        </div> -->
                     </div>
                 </div>
             </div>
-            <button
-                onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
-                Descargar CV <i class="fa-solid fa-download"></i>
-                <span class="overlay"></span>
-            </button>
+
         </div>
     </section>
 
-    <!-- SECCION SKILLS -->
     <section class="skills" id="skills">
         <div class="contenido-seccion">
             <h2>Skills</h2>
             <div class="fila">
-                <!-- Technical Skills -->
                 <div class="col">
                     <h3>Technical Skills</h3>
                     <div class="skill">
@@ -191,7 +169,6 @@
                     </div>
                 </div>
 
-                <!-- Professional Skills -->
                 <div class="col">
                     <h3>Professional Skills</h3>
                     <div class="skill">
@@ -230,7 +207,6 @@
     </section>
 
 
-    <!-- SECCION CURRICULUM -->
     <section id="curriculum" class="curriculum">
         <div class="contenido-seccion">
             <h2>Curriculum</h2>
@@ -310,7 +286,6 @@
         </div>
     </section>
 
-    <!-- SECCION PORTFOLIO -->
     <section id="portfolio" class="portfolio">
         <div class="contenido-seccion">
             <h2>PORTFOLIO</h2>
@@ -355,12 +330,10 @@
     </section>
 
 
-    <!-- SECCION CONTACTO -->
     <section id="contacto" class="contacto">
         <div class="contenido-seccion">
             <h2>CONTACTO</h2>
             <div class="fila">
-                <!-- Formulario -->
                 <div class="col">
                     <form id="contact-form">
                         <input type="text" id="from_name" placeholder="Tú Nombre" required>
@@ -374,18 +347,11 @@
                         </button>
                     </form>
                 </div>
-                <!-- <a href="https://wa.me/+573016805257" target="_blank" class="whatsapp-chat">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a> -->
             </div>
         </div>
     </section>
 
 
-
-
-
-    <!-- footer -->
     <footer>
         <a href="#inicio" class="arriba">
             <i class="fa-solid fa-angles-up"></i>
@@ -401,8 +367,6 @@
 
     <script src="/script/scripst.js"></script>
     <script src="/script/translations.js"></script>
-    <!-- <script src="//code.tidio.co/z5qolgwsdglupa6jsz9cxnimwxabv41e.js" async></script> -->
-
-</body>
+    </body>
 
 </html>
