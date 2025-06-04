@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
-/* Paleta de colores */
+
+/* Default Theme (Dark Theme - Your Current Colors) */
 :root {
     --fondo-principal: #0D0A1F;
     --fondo-secundario: #161B30;
@@ -10,10 +11,34 @@
     --sombra-neon: 0 0 10px rgba(0, 255, 198, 0.7), 0 0 20px rgba(0, 255, 198, 0.5);
 }
 
-/* Fondo global */
+/* Light Theme Overrides (Add this class to your <body> tag to activate) */
+body.light-theme {
+    --fondo-principal: #F8F8F8;
+    --fondo-secundario: #E0E0E0;
+    --color-destacado: #00A6B2; /* Slightly darker cyan for better contrast on light */
+    --color-neon: #00BFA5;     /* Slightly darker mint green for better contrast on light */
+    --texto-principal: #333333;
+    --texto-secundario: #555555;
+    --sombra-neon: 0 0 8px rgba(0, 255, 198, 0.3), 0 0 12px rgba(0, 255, 198, 0.15); /* Softer glow */
+}
+
+/* Base Styles */
+*{
+    box-sizing: border-box;
+    font-family: 'Work Sans';
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* Global Background and Text */
 body {
     background: var(--fondo-principal);
     color: var(--texto-principal);
+    padding-top: 80px;
+    transition: background 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 
 /* TITULOS DESTACADOS */
@@ -24,6 +49,7 @@ h2 {
     margin-bottom: 40px;
     color: var(--color-destacado);
     position: relative;
+    transition: color 0.4s ease; /* Smooth theme transition */
 }
 
 h2::after {
@@ -35,12 +61,14 @@ h2::after {
     margin: 12px auto 0;
     border-radius: 2px;
     box-shadow: var(--sombra-neon);
+    transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
 }
 
 /* BOTONES MODERNOS */
 button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px var(--color-neon);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* LINKS Y BOTONES SOCIAL */
@@ -53,16 +81,21 @@ button:hover {
 
 .redes a:hover {
     background: var(--color-neon);
-    color: var(--fondo-principal);
+    color: var(--fondo-principal); /* Text color adjusts to new background */
     box-shadow: var(--sombra-neon);
     transform: scale(1.1);
 }
 
 /* NAV BAR */
 .contenedor-header {
-    background: rgba(13, 10, 31, 0.95);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    height: 80px; /* Ajusta este valor al alto real de tu header */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    position: fixed; /* Si quieres que el header se quede fijo al hacer scroll */
+    top: 0; /* Lo pega arriba */
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: var(--fondo-principal); /* O el color de fondo de tu header */
+    /* ... otros estilos que ya tengas ... */
 }
 
 /* PORTAFOLIO */
@@ -78,8 +111,8 @@ button:hover {
 
 /* OVERLAY CON NEON */
 .portfolio .proyecto .overlay {
-    background: rgba(0, 229, 255, 0.9);
-    color: var(--fondo-principal);
+    background: rgba(0, 229, 255, 0.9); /* Consider using a transparent version of color-destacado */
+    color: var(--fondo-principal); /* Text color adjusts to new background */
     box-shadow: var(--sombra-neon);
 }
 
@@ -87,11 +120,13 @@ button:hover {
 .contenedor-header nav ul li a:hover {
     color: var(--color-neon);
     text-shadow: var(--sombra-neon);
+    transition: color 0.4s ease, text-shadow 0.4s ease; /* Smooth theme transition */
 }
 
 /* BARRA SKILLS */
 .skills .skill .barra-skill {
     background: var(--fondo-secundario);
+    transition: background 0.4s ease; /* Smooth theme transition */
 }
 
 .skills .skill .progreso {
@@ -99,23 +134,26 @@ button:hover {
     height: 8px;
     border-radius: 5px;
     box-shadow: var(--sombra-neon);
+    transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
 }
 
 /* FOOTER */
 footer {
     background: var(--fondo-secundario);
     color: var(--texto-principal);
+    transition: background 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 
 footer .arriba {
     background: var(--color-neon);
     box-shadow: var(--sombra-neon);
+    transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
 }
 
 /* BOTÓN WHATSAPP */
 .whatsapp-chat {
-    background: linear-gradient(135deg, #25D366, #00FFC6);
-    box-shadow: var(--sombra-neon);
+    background: linear-gradient(135deg, #25D366, #00FFC6); /* Kept fixed for WhatsApp green */
+    box-shadow: var(--sombra-neon); /* Uses theme's neon shadow */
     transition: all 0.4s ease;
 }
 
@@ -125,12 +163,12 @@ footer .arriba {
 }
 
 /* SOMBRAS EN SECCIONES */
-.inicio .contenido-banner, 
+.inicio .contenido-banner,
 .sobremi .fila .col .contenedor-intereses .interes,
 .curriculum .fila .item,
 .portfolio .proyecto,
 .contacto .col .info {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Remains somewhat dark for depth */
     transition: all 0.3s ease;
 }
 
@@ -149,19 +187,8 @@ footer .arriba {
     animation: fadeIn 1s ease-in-out;
 }
 
-*{
-    box-sizing: border-box;
-    font-family: 'Work Sans';
-    margin: 0;
-    padding: 0;
-}
-html{
-    /* me permite deslizar cuando hago clic en los links del menu */
-    scroll-behavior: smooth;
-}
 /* MENU */
 .contenedor-header{
-    background: var(--fondo-principal);
     position: fixed;
     width: 100%;
     top: 0;
@@ -181,6 +208,7 @@ html{
     font-size: 36px;
     color: var(--color-destacado);
     text-decoration: none;
+    transition: color 0.4s ease; /* Smooth theme transition */
 }
 .contenedor-header header ul{
     display: flex;
@@ -195,19 +223,20 @@ html{
     text-decoration: none;
 }
 .contenedor-header header nav ul li a:hover{
-    color: #1CB698;
+    color: var(--color-neon); /* Use the neon color from theme */
 }
 .nav-responsive{
-    background-color: #1CB698;
-    color:#fff;
+    background-color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--fondo-principal); /* Text color adjusts to new background */
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     display: none;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 /* SECCION I N I C I O */
 .inicio{
-    background: linear-gradient(to top, rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 1)),
+    background: linear-gradient(to top, rgba(13, 10, 31, 0.8), rgba(13, 10, 31, 1)), /* This gradient might need adjustment for light theme */
     url(img/fondo.jpg);
     color: var(--texto-principal);
     background-size: cover;
@@ -216,12 +245,14 @@ html{
     align-items: center;
 }
 .inicio .contenido-banner{
-    padding: 20px;
+    padding: 10px;
     background-color: var(--fondo-secundario);
     max-width: 350px;
     margin: auto;
     text-align: center;
     border-radius: 40px;
+    position: relative;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 .inicio .contenido-banner img{
     margin-top: 40px;
@@ -230,22 +261,24 @@ html{
     width: 80%;
     margin: auto;
     border-radius: 100%;
+    transition: border-color 0.4s ease; /* Smooth theme transition */
 }
 .inicio .contenido-banner h1{
     color: var(--color-destacado);
     margin-top: 40px;
     font-size: 42px;
     font-family: 'Righteous';
+    transition: color 0.4s ease; /* Smooth theme transition */
 }
 .inicio .contenido-banner h2{
     font-size: 15px;
     font-weight: normal;
 }
 .inicio .contenido-banner .redes a{
-    color: #fff;
+    color: var(--texto-principal); /* Use primary text color for theme consistency */
     display: inline-block;
     text-decoration: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--texto-principal); /* Border color adjusts to theme */
     border-radius: 100%;
     width: 42px;
     height: 42px;
@@ -255,12 +288,14 @@ html{
     transition: .3s;
 }
 .inicio .contenido-banner .redes a:hover{
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--fondo-principal); /* Text color adjusts to new background */
 }
 .sobremi{
-    background-color: #1e2326;
-    color: #fff;
-    padding: 50px 20px;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    padding: 40px 20px;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .sobremi .contenido-seccion{
     max-width: 1100px;
@@ -271,7 +306,6 @@ html{
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
-
 }
 .sobremi .contenido-seccion p{
     font: 18px;
@@ -301,14 +335,16 @@ html{
 }
 .sobremi .fila .col ul li strong{
     display: inline-block;
-    color: #1CB698;
+    color: var(--color-neon); /* Uses neon color from theme */
     width: 130px;
+    transition: color 0.4s ease; /* Smooth theme transition */
 }
 .sobremi .fila .col ul li span{
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     padding: 3px;
     font-weight: bold;
     border-radius: 5px;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 .sobremi .fila .col .contenedor-intereses{
     display: flex;
@@ -317,7 +353,7 @@ html{
 .sobremi .fila .col .contenedor-intereses .interes{
     width: 120px;
     height: 100px;
-    background-color: #252A2E;
+    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
     border-radius: 10px;
     margin: 0 15px 15px 0;
     display: flex;
@@ -328,7 +364,7 @@ html{
     text-align: center;
     font-size: 12px;
 }.sobremi .fila .col .contenedor-intereses .interes:hover{
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
 }
 .sobremi .fila .col .contenedor-intereses .interes i{
     font-size: 30px;
@@ -337,15 +373,16 @@ html{
 .sobremi button{
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid var(--texto-principal); /* Border color adjusts to theme */
     width: fit-content;
     display: block;
     margin: 20px auto;
     padding: 10px 22px;
     font-size: 16px;
-    color: #fff;
+    color: var(--texto-principal); /* Text color adjusts to theme */
     position: relative;
     z-index: 10;
+    transition: border-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .sobremi button .overlay{
     position: absolute;
@@ -353,7 +390,7 @@ html{
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     z-index: -1;
     transition: 1s;
 }
@@ -362,9 +399,10 @@ html{
 }
 /* SECCION S K I L L S */
 .skills{
-    background-color: #252A2E;
-    color: #fff;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
     padding: 50px 20px;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .skills .contenido-seccion{
     max-width: 1100px;
@@ -375,7 +413,6 @@ html{
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
-
 }
 .skills .fila{
     display: flex;
@@ -397,31 +434,33 @@ html{
 .skills .skill .barra-skill{
     height: 8px;
     width: 80%;
-    background-color: #131517;
+    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
     position: relative;
     margin-bottom: 30px;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 
 .barra-skill {
     width: 100%;
     height: 10px;
-    background: #ddd;
+    background: var(--fondo-secundario); /* Uses secondary background for theme consistency */
     border-radius: 5px;
     margin: 10px 0;
     overflow: hidden;
     position: relative;
+    transition: background 0.4s ease; /* Smooth theme transition */
 }
 
 .progreso {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, #ff8c00, #ff4500);
+    background: linear-gradient(90deg, var(--color-neon), var(--color-destacado)); /* Uses theme's accent colors */
     border-radius: 5px;
-    transition: width 1.5s ease-in-out;
+    transition: width 1.5s ease-in-out, background 0.4s ease; /* Smooth theme transition */
 }
 
 .skills .skill .progreso{
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     position: absolute;
     top: 0;
     left: 0;
@@ -438,38 +477,26 @@ html{
     right: -15px;
     font-size: 14px;
 }
-.sobremi, .skills, .curriculum, .portfolio, .contacto {
-    background-color: var(--fondo-principal);
-    color: var(--texto-principal);
-}
+
+/* Common Section Styles (already adjusted to use variables) */
 .sobremi h2, .skills h2, .curriculum h2, .portfolio h2, .contacto h2 {
     color: var(--color-destacado);
+    transition: color 0.4s ease;
 }
 .sobremi .contenido-seccion p span,
 .skills .skill .barra-skill span,
 .portfolio .galeria .proyecto .overlay,
 .contacto .col .info ul li i {
     color: var(--color-destacado);
-}
-.skills .skill .barra-skill {
-    background-color: var(--fondo-secundario);
-}
-.skills .skill .progreso {
-    background-color: var(--color-destacado);
-}
-
-footer {
-    background-color: var(--fondo-secundario);
+    transition: color 0.4s ease;
 }
 
 footer .redes a {
     border-color: var(--color-destacado);
+    transition: border-color 0.4s ease;
 }
 
-footer .arriba {
-    background-color: var(--color-destacado);
-}
-/* Estas clases se agregaran dinamicamente mediante javascript */
+/* These classes will be dynamically added by javascript */
 .skills .skill .javascript{
     width: 0%;
     animation: 2s javascript forwards;
@@ -561,9 +588,10 @@ footer .arriba {
 }
 /* SECCION CURRICULUM */
 .curriculum{
-    background-color: #1e2326;
-    color: #fff;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
     padding: 50px 20px;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .contenido-seccion{
     max-width: 1100px;
@@ -574,7 +602,6 @@ footer .arriba {
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
-
 }
 .curriculum .fila{
     display: flex;
@@ -590,91 +617,103 @@ footer .arriba {
     margin-bottom: 25px;
 }
 .curriculum .fila .izquierda{
-    border-right: 2px solid #252A2E;
+    border-right: 2px solid var(--fondo-secundario); /* Uses secondary background for border */
+    transition: border-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .derecha{
-    border-left: 2px solid #252A2E;
+    border-left: 2px solid var(--fondo-secundario); /* Uses secondary background for border */
+    transition: border-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item{
     padding: 25px;
     margin-bottom: 30px;
-    background-color: #252A2E;
+    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
     position: relative;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item h4{
     font-size: 20px;
     margin-bottom: 10px;
 }
 .curriculum .fila .item .casa{
-    color: #1CB698;
+    color: var(--color-neon); /* Uses neon color from theme */
     font-size: 22px;
     font-weight: bold;
     display: block;
+    transition: color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item .fecha{
     display: block;
-    color: #1CB698;
+    color: var(--color-neon); /* Uses neon color from theme */
     margin-bottom: 10px;
+    transition: color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item p{
     line-height: 24px;
 }
 .curriculum .fila .izq{
-    border-right: 2px solid #1CB698;
+    border-right: 2px solid var(--color-neon); /* Uses neon color for border */
     margin-right: 20px;
+    transition: border-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .der{
-    border-left: 2px solid #1CB698;
+    border-left: 2px solid var(--color-neon); /* Uses neon color for border */
     margin-left: 20px;
+    transition: border-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item .conectori{
     height: 2px;
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     width: 47px;
     position: absolute;
     top: 50%;
     right: -47px;
     z-index: 5;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item .conectori .circuloi{
     display: block;
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     float: right;
     position: relative;
     bottom: 4px;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item .conectord{
     height: 2px;
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     width: 47px;
     position: absolute;
     top: 50%;
     left: -47px;
     z-index: 5;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item .conectord .circulod{
     display: block;
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     float: left;
     position: relative;
     bottom: 4px;
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 /* SECCION PORTFOLIO */
 .portfolio {
-    background-color: #252A2E;
-    color: #fff;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
     padding: 50px 20px;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 
 .portfolio .contenido-seccion {
-    max-width: 1400px; /* Aumenta el ancho máximo */
-    width: 90%; /* Se adapta a la pantalla */
+    max-width: 1400px;
+    width: 90%;
     margin: auto;
 }
 
@@ -688,32 +727,28 @@ footer .arriba {
 /* Galería con grid para una mejor distribución */
 .portfolio .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ajuste responsivo */
-    gap: 20px; /* Espaciado entre proyectos */
-    justify-items: center; /* Centra las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    justify-items: center;
 }
 
 .portfolio .proyecto {
     position: relative;
     width: 100%;
-    max-width: 350px; /* Ajusta el tamaño de los proyectos */
+    max-width: 350px;
     cursor: pointer;
 }
 
 .portfolio .proyecto img {
     width: 100%;
     display: block;
-    border-radius: 8px; /* Bordes redondeados para mejor apariencia */
+    border-radius: 8px;
 }
 
 /* Efecto de overlay */
 .portfolio .proyecto .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(28, 182, 152, 0.85);
+    background: rgba(0, 229, 255, 0.85); /* Consider using a transparent version of color-destacado */
+    color: var(--fondo-principal); /* Text color adjusts to new background */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -737,26 +772,27 @@ footer .arriba {
 }
 
 .portfolio .overlay a {
-    color: #fff;
-    background: #ff6600;
+    color: var(--texto-principal); /* Uses primary text color for theme consistency */
+    background: var(--color-neon); /* Uses neon color from theme */
     padding: 8px 12px;
     text-decoration: none;
     border-radius: 5px;
     display: inline-block;
     margin-top: 10px;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .portfolio .overlay a:hover {
-    background: #ff4500;
+    background: var(--color-destacado); /* Changes to destacado on hover */
 }
 /* SECCION CONTACTO */
 .contacto{
-    background-image: url(img/contact_bg.png);
-    background-color: #1e2326;
-    color: #fff;
+    background-image: url(img/contact_bg.png); /* Consider a different background for light theme */
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
     padding: 50px 0;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .contacto .contenido-seccion{
     max-width: 1100px;
@@ -782,22 +818,24 @@ footer .arriba {
     padding: 18px;
     border: none;
     margin-bottom: 20px;
-    background-color: #252A2E;
-    color: #fff;
+    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+    color: var(--texto-principal); /* Text color adjusts to theme */
     font-size: 18px;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .contacto button{
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid var(--texto-principal); /* Border color adjusts to theme */
     width: fit-content;
     display: block;
     margin: 20px auto;
     padding: 10px 22px;
     font-size: 16px;
-    color: #fff;
+    color: var(--texto-principal); /* Text color adjusts to theme */
     position: relative;
     z-index: 10;
+    transition: border-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .contacto button .overlay{
     position: absolute;
@@ -805,7 +843,7 @@ footer .arriba {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #1CB698;
+    background-color: var(--color-neon); /* Uses neon color from theme */
     z-index: -1;
     transition: 1s;
 }
@@ -818,11 +856,12 @@ footer .arriba {
 .contacto .col .info{
     position: absolute;
     top: 40%;
-    background-color: #252A2E;
+    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
     padding: 20px;
     max-swidth: 350px;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: background-color 0.4s ease; /* Smooth theme transition */
 }
 .contacto .col .info ul{
     list-style: none;
@@ -831,26 +870,28 @@ footer .arriba {
     margin-bottom: 20px;
 }
 .contacto .col .info ul li i{
-    color: #1CB698;
+    color: var(--color-neon); /* Uses neon color from theme */
     display: inline-block;
     margin-right: 20px;
+    transition: color 0.4s ease; /* Smooth theme transition */
 }
 footer{
-    background-color: #252A2E;
-    color: #fff;
+    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+    color: var(--texto-principal); /* Text color adjusts to theme */
     padding: 50px 0 30px 0;
     text-align: center;
     position: relative;
     width: 100%;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 footer .redes{
     margin-bottom: 20px;
 }
 footer .redes a{
-    color: #fff;
+    color: var(--texto-principal); /* Text color adjusts to theme */
     display: inline-block;
     text-decoration: none;
-    border: 1px solid #fff;
+    border: 1px solid var(--texto-principal); /* Border color adjusts to theme */
     border-radius: 100%;
     width: 42px;
     height: 42px;
@@ -859,12 +900,16 @@ footer .redes a{
     font-size: 20px;
     transition: .3s;
 }
+footer .redes a:hover{
+    background-color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--fondo-principal); /* Text color adjusts to new background */
+}
 footer .arriba{
     display: block;
     width: 50px;
     height: 50px;
-    background-color: #1CB698;
-    color: #fff;
+    background-color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--fondo-principal); /* Text color adjusts to new background */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -872,24 +917,25 @@ footer .arriba{
     border-radius: 50%;
     line-height: 50px;
     font-size: 18px;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
 }
 .contacto .fila {
-    position: relative; /* Para que el botón se posicione en relación con esta sección */
+    position: relative;
 }
 
 .whatsapp-chat {
     position: absolute;
-    right: -60px; /* Ajusta según el diseño */
+    right: -60px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #25D366;
+    background-color: #25D366; /* Kept fixed for WhatsApp green */
     color: white;
     font-size: 30px;
     padding: 15px;
     border-radius: 50%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    z-index: 10; /* Suficiente para que no quede oculto */
+    z-index: 10;
 }
 .whatsapp-chat:hover {
     background-color: #1EBE5D;
@@ -898,26 +944,23 @@ footer .arriba{
 
 /* SECCION RESPONSIVE */
 @media screen and (max-width:980px){
-    nav{
-        display: none;
+
+    .contenedor-header {
+        height: auto; /* Permite que el alto se ajuste al contenido (logo + selector + nav responsive) */
     }
-    .nav-responsive{
-        display: block;
+    body {
+        /* Un padding-top mayor para acomodar el header responsive si crece */
+        /* Tendrás que ajustar este valor viendo cómo se comporta tu header responsive */
+        padding-top: 150px; /* Ejemplo, ajústalo según tu diseño responsive */
     }
     nav.responsive{
         display: block;
         position: absolute;
         right: 0;
         top: 75px;
-        background-color: #252A2E;
+        background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
         width: 180px;
-    }
-    nav.responsive ul{
-        display: block !important;
-    }
-    nav.responsive ul li{
-        border-bottom: 1px solid #fff;
-        padding: 10px 0;
+        transition: background-color 0.4s ease; /* Smooth theme transition */
     }
 }
 @media screen and (max-width:700px){
