@@ -2,24 +2,31 @@
 
 /* Default Theme (Dark Theme - Your Current Colors) */
 :root {
-    --fondo-principal: #0D0A1F;
-    --fondo-secundario: #161B30;
-    --color-destacado: #00E5FF;
-    --color-neon: #00FFC6;
-    --texto-principal: #F0F0F0;
-    --texto-secundario: #B0B8D1;
-    --sombra-neon: 0 0 10px rgba(0, 255, 198, 0.7), 0 0 20px rgba(0, 255, 198, 0.5);
+    /* Palette inspired by olaolu.dev — default dark mode variables (you can toggle .light-theme for light mode) */
+    --accent: #FF2D95;             /* magenta/pink accent */
+    --accent-hover: #FF1F7F;       /* slightly darker/saturated for hover */
+
+    /* Dark mode (default) */
+    --fondo-principal: #121212;    /* deep dark background */
+    --fondo-secundario: #1A1A1A;   /* dark sections */
+    --texto-principal: #EAEAEA;    /* near-white text */
+    --texto-secundario: #B3B3B3;   /* secondary text */
+    --borde: #333333;              /* divisores en dark */
+    --sombra-accent: 0 8px 24px rgba(255,45,149,0.08); /* pink-ish soft shadow */
 }
 
 /* Light Theme Overrides (Add this class to your <body> tag to activate) */
 body.light-theme {
-    --fondo-principal: #F8F8F8;
-    --fondo-secundario: #E0E0E0;
-    --color-destacado: #00A6B2; /* Slightly darker cyan for better contrast on light */
-    --color-neon: #00BFA5;     /* Slightly darker mint green for better contrast on light */
-    --texto-principal: #333333;
-    --texto-secundario: #555555;
-    --sombra-neon: 0 0 8px rgba(0, 255, 198, 0.3), 0 0 12px rgba(0, 255, 198, 0.15); /* Softer glow */
+    /* Light theme variables */
+    --accent: #FF2D95;
+    --accent-hover: #FF1F7F;
+
+    --fondo-principal: #FFFFFF;   /* white soft */
+    --fondo-secundario: #F9F9F9;  /* very light section */
+    --texto-principal: #1A1A1A;   /* dark text */
+    --texto-secundario: #666666;  /* mid gray */
+    --borde: #E0E0E0;             /* light divider */
+    --sombra-accent: 0 8px 24px rgba(255,45,149,0.06);
 }
 
 /* Base Styles */
@@ -47,7 +54,7 @@ h2 {
     letter-spacing: 2px;
     text-align: center;
     margin-bottom: 40px;
-    color: var(--color-destacado);
+    color: var(--accent);
     position: relative;
     transition: color 0.4s ease; /* Smooth theme transition */
 }
@@ -57,33 +64,33 @@ h2::after {
     display: block;
     width: 200px;
     height: 4px;
-    background: var(--color-neon);
+    background: var(--accent);
     margin: 12px auto 0;
     border-radius: 2px;
-    box-shadow: var(--sombra-neon);
+    box-shadow: var(--sombra-accent);
     transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
 }
 
 /* BOTONES MODERNOS */
 button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px var(--color-neon);
+    box-shadow: 0 0 20px var(--accent-hover);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* LINKS Y BOTONES SOCIAL */
 .redes a {
     background: transparent;
-    color: var(--color-destacado);
-    border: 2px solid var(--color-neon);
+    color: var(--accent);
+    border: 2px solid var(--accent);
     transition: all 0.4s ease;
 }
 
 .redes a:hover {
-    background: var(--color-neon);
+    background: var(--accent-hover);
     color: var(--fondo-principal); /* Text color adjusts to new background */
-    box-shadow: var(--sombra-neon);
-    transform: scale(1.1);
+    box-shadow: var(--sombra-accent);
+    transform: scale(1.08);
 }
 
 /* NAV BAR */
@@ -106,20 +113,20 @@ button:hover {
 
 .portfolio .proyecto:hover img {
     transform: scale(1.05);
-    box-shadow: var(--sombra-neon);
+    box-shadow: var(--sombra-accent);
 }
 
 /* OVERLAY CON NEON */
 .portfolio .proyecto .overlay {
     background: rgba(0, 229, 255, 0.9); /* Consider using a transparent version of color-destacado */
     color: var(--fondo-principal); /* Text color adjusts to new background */
-    box-shadow: var(--sombra-neon);
+    box-shadow: var(--sombra-accent);
 }
 
 /* HOVER MENÚ */
 .contenedor-header nav ul li a:hover {
-    color: var(--color-neon);
-    text-shadow: var(--sombra-neon);
+    color: var(--accent-hover);
+    text-shadow: var(--sombra-accent);
     transition: color 0.4s ease, text-shadow 0.4s ease; /* Smooth theme transition */
 }
 
@@ -130,10 +137,10 @@ button:hover {
 }
 
 .skills .skill .progreso {
-    background: linear-gradient(90deg, var(--color-neon), var(--color-destacado));
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
     height: 8px;
     border-radius: 5px;
-    box-shadow: var(--sombra-neon);
+    box-shadow: var(--sombra-accent);
     transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
 }
 
@@ -145,21 +152,22 @@ footer {
 }
 
 footer .arriba {
-    background: var(--color-neon);
-    box-shadow: var(--sombra-neon);
+    background: var(--accent);
+    box-shadow: var(--sombra-accent);
     transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
 }
 
 /* BOTÓN WHATSAPP */
 .whatsapp-chat {
-    background: linear-gradient(135deg, #25D366, #00FFC6); /* Kept fixed for WhatsApp green */
-    box-shadow: var(--sombra-neon); /* Uses theme's neon shadow */
+    /* Keep WhatsApp brand green, but soften shadow to match site */
+    background: linear-gradient(135deg, #25D366, #10B981);
+    box-shadow: var(--sombra-accent);
     transition: all 0.4s ease;
 }
 
 .whatsapp-chat:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px var(--color-neon);
+    transform: scale(1.06);
+    box-shadow: 0 8px 20px rgba(255,45,149,0.08);
 }
 
 /* SOMBRAS EN SECCIONES */
@@ -174,7 +182,7 @@ footer .arriba {
 
 .inicio .contenido-banner:hover,
 .sobremi .fila .col .contenedor-intereses .interes:hover {
-    box-shadow: var(--sombra-neon);
+    box-shadow: var(--sombra-accent);
 }
 
 /* EFECTO APARICIÓN */
@@ -203,10 +211,15 @@ footer .arriba {
     align-items: center;
     padding: 15px 20px;
 }
+.contenedor-header header .controls{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
 .contenedor-header header .logo a{
     font-family: 'Righteous';
-    font-size: 36px;
-    color: var(--color-destacado);
+    font-size: 20px;
+    color: var(--accent);
     text-decoration: none;
     transition: color 0.4s ease; /* Smooth theme transition */
 }
@@ -218,15 +231,15 @@ footer .arriba {
     text-align: none;
     color: var(--texto-principal);
     margin: 0 15px;
-    padding: 3px;
-    transition: .5s;
+    padding: 6px 8px;
+    transition: .25s;
     text-decoration: none;
 }
 .contenedor-header header nav ul li a:hover{
-    color: var(--color-neon); /* Use the neon color from theme */
+    color: var(--accent-hover); /* Use the accent hover color from theme */
 }
 .nav-responsive{
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     color: var(--fondo-principal); /* Text color adjusts to new background */
     padding: 5px 10px;
     border-radius: 5px;
@@ -245,30 +258,35 @@ footer .arriba {
     align-items: center;
 }
 .inicio .contenido-banner{
-    padding: 10px;
-    background-color: var(--fondo-secundario);
-    max-width: 350px;
+    padding: 28px 30px;
+    background: linear-gradient(135deg, rgb(146, 43, 95), rgba(255,45,149,0.02));
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    max-width: 700px;
     margin: auto;
     text-align: center;
-    border-radius: 40px;
+    border-radius: 18px;
     position: relative;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, transform 0.3s ease; /* Smooth theme transition */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
 }
 .inicio .contenido-banner img{
-    margin-top: 40px;
-    border: 10px solid var(--color-destacado);
+    margin-top: 10px;
+    border: 6px solid rgba(0,0,0,0.12);
     display: block;
-    width: 80%;
-    margin: auto;
-    border-radius: 100%;
-    transition: border-color 0.4s ease; /* Smooth theme transition */
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 50%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .inicio .contenido-banner h1{
-    color: var(--color-destacado);
-    margin-top: 40px;
-    font-size: 42px;
+    color: var(--accent);
+    margin-top: 18px;
+    font-size: 38px;
     font-family: 'Righteous';
-    transition: color 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease, transform 0.3s ease; /* Smooth theme transition */
 }
 .inicio .contenido-banner h2{
     font-size: 15px;
@@ -288,7 +306,7 @@ footer .arriba {
     transition: .3s;
 }
 .inicio .contenido-banner .redes a:hover{
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color */
     color: var(--fondo-principal); /* Text color adjusts to new background */
 }
 .sobremi{
@@ -311,6 +329,7 @@ footer .arriba {
     font: 18px;
     line-height: 22px;
     margin-bottom: 20px;
+    color: var(--texto-secundario);
 }
 .sobremi .contenido-seccion p span{
     font-weight: bold;
@@ -335,12 +354,12 @@ footer .arriba {
 }
 .sobremi .fila .col ul li strong{
     display: inline-block;
-    color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--accent);
     width: 130px;
     transition: color 0.4s ease; /* Smooth theme transition */
 }
 .sobremi .fila .col ul li span{
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent);
     padding: 3px;
     font-weight: bold;
     border-radius: 5px;
@@ -364,7 +383,7 @@ footer .arriba {
     text-align: center;
     font-size: 12px;
 }.sobremi .fila .col .contenedor-intereses .interes:hover{
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
 }
 .sobremi .fila .col .contenedor-intereses .interes i{
     font-size: 30px;
@@ -390,7 +409,7 @@ footer .arriba {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     z-index: -1;
     transition: 1s;
 }
@@ -454,13 +473,13 @@ footer .arriba {
 .progreso {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, var(--color-neon), var(--color-destacado)); /* Uses theme's accent colors */
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover)); /* Uses theme's accent colors */
     border-radius: 5px;
     transition: width 1.5s ease-in-out, background 0.4s ease; /* Smooth theme transition */
 }
 
 .skills .skill .progreso{
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     position: absolute;
     top: 0;
     left: 0;
@@ -480,19 +499,19 @@ footer .arriba {
 
 /* Common Section Styles (already adjusted to use variables) */
 .sobremi h2, .skills h2, .curriculum h2, .portfolio h2, .contacto h2 {
-    color: var(--color-destacado);
+    color: var(--accent);
     transition: color 0.4s ease;
 }
 .sobremi .contenido-seccion p span,
 .skills .skill .barra-skill span,
 .portfolio .galeria .proyecto .overlay,
 .contacto .col .info ul li i {
-    color: var(--color-destacado);
+    color: var(--accent);
     transition: color 0.4s ease;
 }
 
 footer .redes a {
-    border-color: var(--color-destacado);
+    border-color: var(--accent);
     transition: border-color 0.4s ease;
 }
 
@@ -636,7 +655,7 @@ footer .redes a {
     margin-bottom: 10px;
 }
 .curriculum .fila .item .casa{
-    color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--accent);
     font-size: 22px;
     font-weight: bold;
     display: block;
@@ -644,7 +663,7 @@ footer .redes a {
 }
 .curriculum .fila .item .fecha{
     display: block;
-    color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--accent);
     margin-bottom: 10px;
     transition: color 0.4s ease; /* Smooth theme transition */
 }
@@ -652,18 +671,18 @@ footer .redes a {
     line-height: 24px;
 }
 .curriculum .fila .izq{
-    border-right: 2px solid var(--color-neon); /* Uses neon color for border */
+    border-right: 2px solid var(--accent); /* Uses accent color for border */
     margin-right: 20px;
     transition: border-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .der{
-    border-left: 2px solid var(--color-neon); /* Uses neon color for border */
+    border-left: 2px solid var(--accent); /* Uses accent color for border */
     margin-left: 20px;
     transition: border-color 0.4s ease; /* Smooth theme transition */
 }
 .curriculum .fila .item .conectori{
     height: 2px;
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     width: 47px;
     position: absolute;
     top: 50%;
@@ -676,7 +695,7 @@ footer .redes a {
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     float: right;
     position: relative;
     bottom: 4px;
@@ -684,7 +703,7 @@ footer .redes a {
 }
 .curriculum .fila .item .conectord{
     height: 2px;
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     width: 47px;
     position: absolute;
     top: 50%;
@@ -697,7 +716,7 @@ footer .redes a {
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     float: left;
     position: relative;
     bottom: 4px;
@@ -727,16 +746,17 @@ footer .redes a {
 /* Galería con grid para una mejor distribución */
 .portfolio .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
     justify-items: center;
 }
 
 .portfolio .proyecto {
     position: relative;
     width: 100%;
-    max-width: 350px;
+    max-width: 420px;
     cursor: pointer;
+    overflow: visible;
 }
 
 .portfolio .proyecto img {
@@ -747,22 +767,25 @@ footer .redes a {
 
 /* Efecto de overlay */
 .portfolio .proyecto .overlay {
-    background: rgba(0, 229, 255, 0.85); /* Consider using a transparent version of color-destacado */
+    background: linear-gradient(180deg, rgba(0,255,110,0.95), rgba(0,160,80,0.95));
     color: var(--fondo-principal); /* Text color adjusts to new background */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 18px;
-    letter-spacing: 1px;
+    font-size: 16px;
+    letter-spacing: 0.6px;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
     border-radius: 8px;
+    padding: 18px;
+    transform: translateY(8px) scale(0.98);
 }
 
 .portfolio .proyecto:hover .overlay {
     opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 /* Espaciado y visibilidad del título */
@@ -773,7 +796,7 @@ footer .redes a {
 
 .portfolio .overlay a {
     color: var(--texto-principal); /* Uses primary text color for theme consistency */
-    background: var(--color-neon); /* Uses neon color from theme */
+    background: var(--accent); /* Uses accent color from theme */
     padding: 8px 12px;
     text-decoration: none;
     border-radius: 5px;
@@ -784,7 +807,7 @@ footer .redes a {
 }
 
 .portfolio .overlay a:hover {
-    background: var(--color-destacado); /* Changes to destacado on hover */
+    background: var(--accent-hover); /* Changes to accent hover on hover */
 }
 /* SECCION CONTACTO */
 .contacto{
@@ -816,12 +839,12 @@ footer .redes a {
     display: block;
     width: 100%;
     padding: 18px;
-    border: none;
+    border: 1px solid var(--borde);
     margin-bottom: 20px;
     background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
     color: var(--texto-principal); /* Text color adjusts to theme */
     font-size: 18px;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.2s ease; /* Smooth theme transition */
 }
 .contacto button{
     cursor: pointer;
@@ -843,7 +866,7 @@ footer .redes a {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     z-index: -1;
     transition: 1s;
 }
@@ -858,7 +881,7 @@ footer .redes a {
     top: 40%;
     background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
     padding: 20px;
-    max-swidth: 350px;
+    max-width: 350px;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: background-color 0.4s ease; /* Smooth theme transition */
@@ -870,7 +893,7 @@ footer .redes a {
     margin-bottom: 20px;
 }
 .contacto .col .info ul li i{
-    color: var(--color-neon); /* Uses neon color from theme */
+    color: var(--accent);
     display: inline-block;
     margin-right: 20px;
     transition: color 0.4s ease; /* Smooth theme transition */
@@ -891,7 +914,7 @@ footer .redes a{
     color: var(--texto-principal); /* Text color adjusts to theme */
     display: inline-block;
     text-decoration: none;
-    border: 1px solid var(--texto-principal); /* Border color adjusts to theme */
+    border: 1px solid var(--accent);
     border-radius: 100%;
     width: 42px;
     height: 42px;
@@ -901,14 +924,14 @@ footer .redes a{
     transition: .3s;
 }
 footer .redes a:hover{
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     color: var(--fondo-principal); /* Text color adjusts to new background */
 }
 footer .arriba{
     display: block;
     width: 50px;
     height: 50px;
-    background-color: var(--color-neon); /* Uses neon color from theme */
+    background-color: var(--accent-hover); /* Uses accent hover color from theme */
     color: var(--fondo-principal); /* Text color adjusts to new background */
     position: absolute;
     left: 50%;

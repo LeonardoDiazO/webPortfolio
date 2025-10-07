@@ -11,30 +11,23 @@ const translations = {
             contacto: "CONTACTO",
         },
         inicio: {
-            nombre: "NICK PEREZ",
-            titulo: "Ingeniero de Software - Experto UI/UX",
+            nombre: "Leonardo Diaz",
+            titulo: "Ingeniero de Sistemas | Desarrollador de Software",
         },
         sobremi: {
             titulo: "Sobre Mí",
-            descripcion: "Hola, soy Nick Perez. Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+            descripcion: "Hola, soy Leonardo Diaz. Soy Ingeniero de Sistemas con más de 3 años de experiencia en desarrollo de software, especializado en tecnologías modernas como Angular, Node.js y Java. Me apasiona crear soluciones tecnológicas eficientes, escalables y centradas en el usuario. Además, mi experiencia previa como líder de ventas en productos de gran consumo me ha brindado habilidades sólidas en gestión de equipos, enfoque al cliente y cumplimiento de objetivos estratégicos.",
             datosPersonales: {
-                cumpleaños: "Cumpleaños",
                 telefono: "Teléfono",
                 email: "Email",
-                website: "Website",
-                direccion: "Dirección",
-                cargo: "Cargo",
-                freelance: "FREELANCE",
+                cargo: "Desarrollador de software",
             },
             intereses: {
-                juegos: "JUEGOS",
-                musica: "MÚSICA",
-                viajar: "VIAJAR",
-                mac: "MAC OS",
-                deporte: "DEPORTE",
-                libros: "LIBROS",
-                autos: "AUTOS",
-                fotos: "FOTOS",
+                desarrollo: "DESARROLLO WEB",
+                ia: "INTELIGENCIA ARTIFICIAL",
+                ciberseguridad: "CIBERSEGURIDAD",
+                videojuegos: "VIDEOJUEGOS",
+                codigoabierto: "CÓDIGO ABIERTO",
             },
             botonCV: "Descargar CV",
         },
@@ -42,11 +35,20 @@ const translations = {
             titulo: "Skills",
             technicalSkills: "Technical Skills",
             professionalSkills: "Professional Skills",
-            comunicacion: "Comunicación",
-            trabajoEquipo: "Trabajo en Equipo",
-            creatividad: "Creatividad",
-            dedicacion: "Dedicación",
-            gestionProyectos: "Proyect Management",
+            tech: {
+                javascript: "JavaScript",
+                htmlcss: "HTML5 & CSS3",
+                spring: "Spring Boot",
+                git: "Git & GitHub",
+                testing: "Testing",
+            },
+            prof: {
+                comunicacion: "Comunicación",
+                trabajoEquipo: "Trabajo en Equipo",
+                pensamiento: "Pensamiento Crítico & Resolución de Problemas",
+                creatividad: "Creatividad & Innovación",
+                gestionProyectos: "Gestión de Proyectos",
+            }
         },
         curriculum: {
             titulo: "Curriculum",
@@ -55,8 +57,26 @@ const translations = {
         },
         portfolio: {
             titulo: "PORTFOLIO",
-            proyectoTitulo: "Diseño Creativo",
-            proyectoDescripcion: "Fotografía",
+            proj1: {
+                title: "Gestor de Inventarios",
+                desc: "Aplicación web en React y Node.js",
+                link: "Ver Proyecto"
+            },
+            proj2: {
+                title: "Sistema de Reservas",
+                desc: "Desarrollado en Java y MySQL",
+                link: "Ver Proyecto"
+            },
+            proj3: {
+                title: "API de Autenticación",
+                desc: "Node.js, Express y JWT",
+                link: "Ver Proyecto"
+            },
+            proj4: {
+                title: "Dashboard de Ventas",
+                desc: "Vue.js y Firebase",
+                link: "Ver Proyecto"
+            }
         },
         contacto: {
             titulo: "CONTACTO",
@@ -87,30 +107,23 @@ const translations = {
             contacto: "CONTACT",
         },
         inicio: {
-            nombre: "NICK PEREZ",
-            titulo: "Software Engineer - UI/UX Expert",
+            nombre: "Leonardo Diaz",
+            titulo: "Systems Engineer | Software Developer",
         },
         sobremi: {
             titulo: "About Me",
-            descripcion: "Hi, I'm Nick Perez. Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+            descripcion: "Hi, I'm Leonardo Diaz. I'm a Systems Engineer with over 3 years of experience in software development, specializing in modern technologies such as Angular, Node.js and Java. I enjoy building efficient, scalable, and user-centered solutions. My prior experience as a commercial team leader helped me develop strong team management and customer-focused skills.",
             datosPersonales: {
-                cumpleaños: "Birthday",
                 telefono: "Phone",
                 email: "Email",
-                website: "Website",
-                direccion: "Address",
-                cargo: "Position",
-                freelance: "FREELANCE",
+                cargo: "Engineer of Systems",
             },
             intereses: {
-                juegos: "GAMES",
-                musica: "MUSIC",
-                viajar: "TRAVEL",
-                mac: "MAC OS",
-                deporte: "SPORT",
-                libros: "BOOKS",
-                autos: "CARS",
-                fotos: "PHOTOS",
+                desarrollo: "WEB DEVELOPMENT",
+                ia: "ARTIFICIAL INTELLIGENCE",
+                ciberseguridad: "CYBERSECURITY",
+                videojuegos: "VIDEO GAMES",
+                codigoabierto: "OPEN SOURCE",
             },
             botonCV: "Download CV",
         },
@@ -118,11 +131,20 @@ const translations = {
             titulo: "Skills",
             technicalSkills: "Technical Skills",
             professionalSkills: "Professional Skills",
-            comunicacion: "Communication",
-            trabajoEquipo: "Teamwork",
-            creatividad: "Creativity",
-            dedicacion: "Dedication",
-            gestionProyectos: "Project Management",
+            tech: {
+                javascript: "JavaScript",
+                htmlcss: "HTML5 & CSS3",
+                spring: "Spring Boot",
+                git: "Git & GitHub",
+                testing: "Testing",
+            },
+            prof: {
+                comunicacion: "Communication",
+                trabajoEquipo: "Teamwork",
+                pensamiento: "Critical Thinking & Problem Solving",
+                creatividad: "Creativity & Innovation",
+                gestionProyectos: "Project Management",
+            }
         },
         curriculum: {
             titulo: "Resume",
@@ -131,8 +153,26 @@ const translations = {
         },
         portfolio: {
             titulo: "PORTFOLIO",
-            proyectoTitulo: "Creative Design",
-            proyectoDescripcion: "Photography",
+            proj1: {
+                title: "Inventory Manager",
+                desc: "Web application built with React and Node.js",
+                link: "View Project"
+            },
+            proj2: {
+                title: "Booking System",
+                desc: "Built with Java and MySQL",
+                link: "View Project"
+            },
+            proj3: {
+                title: "Authentication API",
+                desc: "Node.js, Express and JWT",
+                link: "View Project"
+            },
+            proj4: {
+                title: "Sales Dashboard",
+                desc: "Vue.js and Firebase",
+                link: "View Project"
+            }
         },
         contacto: {
             titulo: "CONTACT",
@@ -151,7 +191,19 @@ const translations = {
         footer: {
             subir: "Scroll Up",
         }
-    },
+    }
 
     // Se puede seguir agregando más idiomas
 };
+
+/**
+ * Helper to resolve dotted keys like 'menu.inicio' from translations
+ */
+function t(lang, dottedKey) {
+    if (!translations[lang]) return null;
+    return dottedKey.split('.').reduce((obj, k) => (obj && obj[k] !== undefined) ? obj[k] : null, translations[lang]);
+}
+
+// Expose helpers globally for the other script
+window.translations = translations;
+window.t = t;

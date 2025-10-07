@@ -15,6 +15,10 @@
     <title>Leonardo Díaz</title>
 
     <link rel="stylesheet" href="css/css.css">
+    <!-- Tailwind Play CDN (for quick prototyping) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,20 +27,25 @@
             <div class="logo">
                 <a href="">Leonardo Díaz</a>
             </div>
-            <nav id="nav">
+            <nav id="nav" aria-label="Main navigation">
                 <ul>
-                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
-                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
-                    <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
-                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
-                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
-                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
-                    <li>            
-                        <div>
-                            <label for="theme-select" style="margin-left: 10%;">TEMA:</label>
-                            <select id="theme-select">
+                    <li><a href="#inicio" data-i18n="menu.inicio" onclick="seleccionar()">INICIO</a></li>
+                    <li><a href="#sobremi" data-i18n="menu.sobremi" onclick="seleccionar()">SOBRE MI</a></li>
+                    <li><a href="#skills" data-i18n="menu.skills" onclick="seleccionar()">SKILLS</a></li>
+                    <li><a href="#curriculum" data-i18n="menu.curriculum" onclick="seleccionar()">CURRICULUM</a></li>
+                    <li><a href="#portfolio" data-i18n="menu.portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+                    <li><a href="#contacto" data-i18n="menu.contacto" onclick="seleccionar()">CONTACTO</a></li>
+                    <li>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <label for="theme-select" style="font-size:13px;">TEMA</label>
+                            <select id="theme-select" style="border-radius: 10px;" aria-label="Seleccionar tema">
                                 <option value="dark">Oscuro</option>
                                 <option value="light">Claro</option>
+                            </select>
+                            <label for="language-selector" style="font-size:13px;margin-left:8px;">IDIOMA</label>
+                            <select id="language-selector" aria-label="Seleccionar idioma" style="border-radius: 10px;" onchange="changeLanguage()">
+                                <option value="es">ES</option>
+                                <option value="en">EN</option>
                             </select>
                         </div>
                     </li>
@@ -48,13 +57,13 @@
         </header>
     </div>
 
-    <section id="inicio" class="inicio">
+    <section id="inicio" class="inicio" data-aos="fade-up">
         <div class="contenido-banner">
             <div class="contenedor-img">
                 <img src="img/perfil.png" alt="">
             </div>
-            <h1>Leonardo Diaz</h1>
-            <h2>Ingeniero de Sistemas | Desarrollador de Software</h2>
+            <h1 data-i18n="inicio.nombre">Leonardo Diaz</h1>
+            <h2 data-i18n="inicio.titulo">Ingeniero de Sistemas | Desarrollador de Software</h2>
             <div class="redes">
                 <a href="https://www.linkedin.com/in/leonardo-diaz-o/" target="_blank"><i
                         class="fa-brands fa-linkedin-in"></i></a>
@@ -65,64 +74,58 @@
         </div>
     </section>
 
-    <section id="sobremi" class="sobremi">
+    <section id="sobremi" class="sobremi" data-aos="fade-up">
         <div class="contenido-seccion">
-            <h2>Sobre Mí</h2>
-            <p>
-                <span>Hola, soy Leonardo Diaz.</span> Soy Ingeniero de Sistemas con más de 3 años de experiencia en
-                desarrollo de software, especializado en tecnologías modernas como Angular, Node.js y Java. Me apasiona
-                crear soluciones tecnológicas eficientes, escalables y centradas en el usuario. Además, mi experiencia
-                previa como líder de ventas en productos de gran consumo me ha brindado habilidades sólidas en gestión
-                de equipos, enfoque al cliente y cumplimiento de objetivos estratégicos. Combino mi conocimiento técnico
-                y mi visión de negocio para aportar valor a los proyectos en los que participo.
+            <h2 data-i18n="sobremi.titulo">Sobre Mí</h2>
+            <p data-i18n="sobremi.descripcion">
+                Hola, soy Leonardo Diaz. Soy Ingeniero de Sistemas con más de 3 años de experiencia en desarrollo de software, especializado en tecnologías modernas como Angular, Node.js y Java. Me apasiona crear soluciones tecnológicas eficientes, escalables y centradas en el usuario. Además, mi experiencia previa como líder de ventas en productos de gran consumo me ha brindado habilidades sólidas en gestión de equipos, enfoque al cliente y cumplimiento de objetivos estratégicos.
             </p>
 
-            <button
-                onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
-                Descargar CV <i class="fa-solid fa-download"></i>
+            <button id="download-cv" onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
+                <span data-i18n="sobremi.botonCV">Descargar CV</span> <i class="fa-solid fa-download"></i>
                 <span class="overlay"></span>
             </button>
             <div class="fila">
                 <div class="col">
-                    <h3>Datos Personales</h3>
+                    <h3 data-i18n="sobremi.titulo">Datos Personales</h3>
                     <ul>
                         <li>
-                            <strong>Teléfono</strong>
-                            +57-301-6805257
+                            <strong data-i18n="sobremi.datosPersonales.telefono">Teléfono</strong>
+                            <span>+57-301-6805257</span>
                         </li>
                         <li>
-                            <strong>Email</strong>
-                            maximun.neo11@gmail.com
+                            <strong data-i18n="sobremi.datosPersonales.email">Email</strong>
+                            <span>leonardodiazingenierosistemas@gmail.com</span>
                         </li>
                         <li>
-                            <strong>Cargo</strong>
-                            <span>Desarrollador de software - Programador</span>
+                            <strong data-i18n="sobremi.datosPersonales.cargo">Cargo</strong>
+                            <span data-i18n="sobremi.datosPersonales.cargo">Desarrollador de software - Programador</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col">
-                    <h3>Intereses</h3>
+                    <h3 data-i18n="sobremi.titulo">Intereses</h3>
                     <div class="contenedor-intereses">
                         <div class="interes">
                             <i class="fa-solid fa-code"></i>
-                            <span>DESARROLLO WEB</span>
+                            <span data-i18n="sobremi.intereses.desarrollo">DESARROLLO WEB</span>
                         </div>
                         <div class="interes">
                             <i class="fa-solid fa-robot"></i>
-                            <span>INTELIGENCIA ARTIFICIAL</span>
+                            <span data-i18n="sobremi.intereses.ia">INTELIGENCIA ARTIFICIAL</span>
                         </div>
                         <div class="interes">
                             <i class="fa-solid fa-shield-halved"></i>
-                            <span>CIBERSEGURIDAD</span>
+                            <span data-i18n="sobremi.intereses.ciberseguridad">CIBERSEGURIDAD</span>
                         </div>
                         <div class="interes">
                             <i class="fa-solid fa-gamepad"></i>
-                            <span>VIDEOJUEGOS</span>
+                            <span data-i18n="sobremi.intereses.videojuegos">VIDEOJUEGOS</span>
                         </div>
                         <div class="interes">
                             <i class="fa-brands fa-github"></i>
-                            <span>CÓDIGO ABIERTO</span>
+                            <span data-i18n="sobremi.intereses.codigoabierto">CÓDIGO ABIERTO</span>
                         </div>
                     </div>
                 </div>
@@ -131,38 +134,38 @@
         </div>
     </section>
 
-    <section class="skills" id="skills">
+    <section class="skills" id="skills" data-aos="fade-up">
         <div class="contenido-seccion">
-            <h2>Skills</h2>
+            <h2 data-i18n="skills.titulo">Skills</h2>
             <div class="fila">
                 <div class="col">
-                    <h3>Technical Skills</h3>
+                    <h3 data-i18n="skills.technicalSkills">Technical Skills</h3>
                     <div class="skill">
-                        <span>JavaScript</span>
+                        <span data-i18n="skills.tech.javascript">JavaScript</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="70"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>HTML5 & CSS3</span>
+                        <span data-i18n="skills.tech.htmlcss">HTML5 & CSS3</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="80"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>Spring Boot</span>
+                        <span data-i18n="skills.tech.spring">Spring Boot</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="95"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>Git & GitHub</span>
+                        <span data-i18n="skills.tech.git">Git & GitHub</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="80"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>Testing</span>
+                        <span data-i18n="skills.tech.testing">Testing</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="55"></div>
                         </div>
@@ -170,33 +173,33 @@
                 </div>
 
                 <div class="col">
-                    <h3>Professional Skills</h3>
+                    <h3 data-i18n="skills.professionalSkills">Professional Skills</h3>
                     <div class="skill">
-                        <span>Comunicación</span>
+                        <span data-i18n="skills.prof.comunicacion">Comunicación</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="80"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>Trabajo en Equipo</span>
+                        <span data-i18n="skills.prof.trabajoEquipo">Trabajo en Equipo</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="70"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>Pensamiento Crítico & Resolución de Problemas</span>
+                        <span data-i18n="skills.prof.pensamiento">Pensamiento Crítico & Resolución de Problemas</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="60"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>Creatividad & Innovación</span>
+                        <span data-i18n="skills.prof.creatividad">Creatividad & Innovación</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="70"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <span>Gestión de Proyectos</span>
+                        <span data-i18n="skills.prof.gestionProyectos">Gestión de Proyectos</span>
                         <div class="barra-skill">
                             <div class="progreso" data-percent="60"></div>
                         </div>
@@ -207,12 +210,12 @@
     </section>
 
 
-    <section id="curriculum" class="curriculum">
+    <section id="curriculum" class="curriculum" data-aos="fade-up">
         <div class="contenido-seccion">
-            <h2>Curriculum</h2>
+            <h2 data-i18n="curriculum.titulo">Curriculum</h2>
             <div class="fila">
                 <div class="col izquierda">
-                    <h3>Educación</h3>
+                    <h3 data-i18n="curriculum.educacion">Educación</h3>
                     <div class="item izq">
                         <h4>Ingeniería de Sistemas y Computación</h4>
                         <span class="casa">Universidad CUL</span>
@@ -243,7 +246,7 @@
                 </div>
 
                 <div class="col derecha">
-                    <h3>Experiencia Profesional</h3>
+                    <h3 data-i18n="curriculum.experiencia">Experiencia Profesional</h3>
                     <div class="item der">
                         <h4>Desarrollador de Software</h4>
                         <span class="casa">Hypersoft</span>
@@ -286,43 +289,43 @@
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio" data-aos="fade-up">
         <div class="contenido-seccion">
             <h2>PORTFOLIO</h2>
             <div class="galeria">
                 <div class="proyecto">
                     <img src="img/proyecto1.jpg" alt="Proyecto 1">
                     <div class="overlay">
-                        <h3>Gestor de Inventarios</h3>
-                        <p>Aplicación web en React y Node.js</p>
-                        <a href="https://github.com/tuusuario/gestor-inventarios" target="_blank">Ver Proyecto</a>
+                        <h3 data-i18n="portfolio.proj1.title">Gestor de Inventarios</h3>
+                        <p data-i18n="portfolio.proj1.desc">Aplicación web en React y Node.js</p>
+                        <a href="https://github.com/tuusuario/gestor-inventarios" target="_blank" data-i18n="portfolio.proj1.link">Ver Proyecto</a>
                     </div>
                 </div>
 
                 <div class="proyecto">
                     <img src="img/proyecto2.jpg" alt="Proyecto 2">
                     <div class="overlay">
-                        <h3>Sistema de Reservas</h3>
-                        <p>Desarrollado en Java y MySQL</p>
-                        <a href="https://github.com/tuusuario/sistema-reservas" target="_blank">Ver Proyecto</a>
+                        <h3 data-i18n="portfolio.proj2.title">Sistema de Reservas</h3>
+                        <p data-i18n="portfolio.proj2.desc">Desarrollado en Java y MySQL</p>
+                        <a href="https://github.com/tuusuario/sistema-reservas" target="_blank" data-i18n="portfolio.proj2.link">Ver Proyecto</a>
                     </div>
                 </div>
 
                 <div class="proyecto">
                     <img src="img/proyecto3.jpg" alt="Proyecto 3">
                     <div class="overlay">
-                        <h3>API de Autenticación</h3>
-                        <p>Node.js, Express y JWT</p>
-                        <a href="https://github.com/tuusuario/api-autenticacion" target="_blank">Ver Proyecto</a>
+                        <h3 data-i18n="portfolio.proj3.title">API de Autenticación</h3>
+                        <p data-i18n="portfolio.proj3.desc">Node.js, Express y JWT</p>
+                        <a href="https://github.com/tuusuario/api-autenticacion" target="_blank" data-i18n="portfolio.proj3.link">Ver Proyecto</a>
                     </div>
                 </div>
 
                 <div class="proyecto">
                     <img src="img/proyecto4.jpg" alt="Proyecto 4">
                     <div class="overlay">
-                        <h3>Dashboard de Ventas</h3>
-                        <p>Vue.js y Firebase</p>
-                        <a href="https://github.com/tuusuario/dashboard-ventas" target="_blank">Ver Proyecto</a>
+                        <h3 data-i18n="portfolio.proj4.title">Dashboard de Ventas</h3>
+                        <p data-i18n="portfolio.proj4.desc">Vue.js y Firebase</p>
+                        <a href="https://github.com/tuusuario/dashboard-ventas" target="_blank" data-i18n="portfolio.proj4.link">Ver Proyecto</a>
                     </div>
                 </div>
             </div>
@@ -330,19 +333,19 @@
     </section>
 
 
-    <section id="contacto" class="contacto">
+    <section id="contacto" class="contacto" data-aos="fade-up">
         <div class="contenido-seccion">
-            <h2>CONTACTO</h2>
+            <h2 data-i18n="contacto.titulo">CONTACTO</h2>
             <div class="fila">
                 <div class="col">
                     <form id="contact-form">
-                        <input type="text" id="from_name" placeholder="Tú Nombre" required>
-                        <input type="text" id="from_phone" placeholder="Número telefónico" required>
-                        <input type="email" id="from_email" placeholder="Dirección de correo" required>
-                        <input type="text" id="subject" placeholder="Tema" required>
-                        <textarea id="message" cols="30" rows="10" placeholder="Mensaje" required></textarea>
+                        <input type="text" id="from_name" placeholder="Tú Nombre" data-i18n="contacto.formulario.nombre" required>
+                        <input type="text" id="from_phone" placeholder="Número telefónico" data-i18n="contacto.formulario.telefono" required>
+                        <input type="email" id="from_email" placeholder="Dirección de correo" data-i18n="contacto.formulario.correo" required>
+                        <input type="text" id="subject" placeholder="Tema" data-i18n="contacto.formulario.tema" required>
+                        <textarea id="message" cols="30" rows="10" placeholder="Mensaje" data-i18n="contacto.formulario.mensaje" required></textarea>
                         <button type="button" id="send-whatsapp">
-                            Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+                            <span data-i18n="contacto.formulario.botonEnviar">Enviar Mensaje</span> <i class="fa-solid fa-paper-plane"></i>
                             <span class="overlay"></span>
                         </button>
                     </form>
@@ -365,8 +368,12 @@
         </div>
     </footer>
 
-    <script src="/script/scripst.js"></script>
-    <script src="/script/translations.js"></script>
+    <!-- Translations (defines window.t) -->
+    <script src="script/translations.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main scripts -->
+    <script src="script/scripst.js"></script>
     </body>
 
 </html>
