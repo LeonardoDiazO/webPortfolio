@@ -3,8 +3,9 @@ let menuVisible = false;
 // Función que oculta o muestra el menu
 function mostrarOcultarMenu() {
     const nav = document.getElementById("nav");
+    if (!nav) return;
     if (menuVisible) {
-        nav.classList.remove(""); // Elimina la clase si está
+        nav.classList.remove("responsive");
         menuVisible = false;
     } else {
         nav.classList.add("responsive");
@@ -14,7 +15,8 @@ function mostrarOcultarMenu() {
 
 function seleccionar() {
     // oculto el menu una vez que selecciono una opcion
-    document.getElementById("nav").classList = "";
+    const nav = document.getElementById("nav");
+    if (nav) nav.classList.remove('responsive');
     menuVisible = false;
 }
 
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica para el cambio de tema ---
     const themeSelect = document.getElementById('theme-select');
     const body = document.body;
+    const languageSelector = document.getElementById('language-selector');
 
     // Función para aplicar el tema
     function applyTheme(theme) {
@@ -65,6 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark'; // Por defecto, tema oscuro
     applyTheme(savedTheme);
 
+    // Cargar idioma guardado
+    const savedLang = localStorage.getItem('lang') || 'es';
+    if (languageSelector) {
+        languageSelector.value = savedLang;
+        // apply translations immediately
+        if (typeof changeLanguage === 'function') changeLanguage();
+    }
+
     // Escuchar cambios en el selector de tema
     if (themeSelect) { // Asegura que el selector exista antes de añadir el listener
         themeSelect.addEventListener('change', (event) => {
@@ -72,16 +83,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    if (languageSelector) {
+        languageSelector.addEventListener('change', (e) => {
+            localStorage.setItem('lang', e.target.value);
+            if (typeof changeLanguage === 'function') changeLanguage();
+        });
+    }
+
     // --- Inicialización de habilidades al cargar la página ---
     // Esto se ejecuta una vez para animar si ya están en pantalla
     efectoHabilidades();
+
+    // Inicializar AOS (Animate On Scroll) si está disponible
+    if (window.AOS && typeof window.AOS.init === 'function') {
+        window.AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    }
+
+    // Re-apply translations after everything is initialized to ensure all elements are translated
+    if (typeof changeLanguage === 'function') {
+        // small timeout to ensure any late DOM changes settle
+        setTimeout(() => changeLanguage(), 50);
+    }
 
     // --- Lógica del botón de WhatsApp ---
     const sendWhatsappButton = document.getElementById("send-whatsapp");
     if (sendWhatsappButton) { // Asegura que el botón exista
         sendWhatsappButton.addEventListener("click", function () {
             // Número de WhatsApp al que quieres enviar el mensaje (pon tu número aquí con código de país)
-            let phoneNumber = "+573016805257"; // Cambia esto por tu número de WhatsApp con código de país
+            let phoneNumber = "573016805257"; // Sin + para wa.me
 
             // Obtener los valores del formulario
             let name = document.getElementById("from_name").value;
@@ -114,28 +147,69 @@ window.onscroll = function () {
 // Asegúrate de que 'translations' esté definido en 'translations.js'
 // scripts.js
 function changeLanguage() {
-    const selectedLang = document.getElementById("language-selector").value;
-    const elementsToTranslate = {
-        inicio: document.querySelector("#nav a[href='#inicio']"),
-        sobreMi: document.querySelector("#nav a[href='#sobremi']"),
-        skills: document.querySelector("#nav a[href='#skills']"),
-        curriculum: document.querySelector("#nav a[href='#curriculum']"),
-        portfolio: document.querySelector("#nav a[href='#portfolio']"),
-        contacto: document.querySelector("#nav a[href='#contacto']"),
-        nombre: document.querySelector("input[placeholder='Tú Nombre']"),
-        telefono: document.querySelector("input[placeholder='Número telefónico']"),
-        correo: document.querySelector("input[placeholder='Dirección de correo']"),
-        tema: document.querySelector("input[placeholder='Tema']"),
-        mensaje: document.querySelector("textarea[placeholder='Mensaje']"),
-        enviar: Array.from(document.querySelectorAll("button")).find(button => button.textContent.trim().includes("Enviar Mensaje")),
-        descargarCV: Array.from(document.querySelectorAll("button")).find(button => button.textContent.trim().includes("Descargar CV")),
-        // ingeniero: document.querySelector(".contenido-banner h2"),
-    };
+    const languageSelector = document.getElementById('language-selector');
+    const selectedLang = languageSelector ? languageSelector.value : (localStorage.getItem('lang') || 'es');
+    localStorage.setItem('lang', selectedLang);
 
-    // Solo ejecuta si 'translations' está disponible y tiene el idioma seleccionado
-    if (typeof translations !== 'undefined' && translations[selectedLang]) {
-        for (const [key, element] of Object.entries(elementsToTranslate)) {
-            if (element) element.textContent = translations[selectedLang][key];
+    // Translate any element that has a data-i18n attribute
+    const missing = [];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (!key) return;
+        if (window.t) {
+            const val = window.t(selectedLang, key);
+            if (val !== null && val !== undefined) {
+                // If it's an input/placeholder target, set placeholder
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = val;
+                } else {
+                    el.textContent = val;
+                }
+            } else {
+                missing.push(key);
+            }
+        }
+    });
+    if (missing.length) {
+        // Only warn in dev; this helps find missing keys
+        console.warn('Missing translations for keys:', Array.from(new Set(missing)).slice(0,20));
+    }
+
+    // Translate placeholders for form controls specifically
+    const placeholders = {
+        'from_name': 'contacto.formulario.nombre',
+        'from_phone': 'contacto.formulario.telefono',
+        'from_email': 'contacto.formulario.correo',
+        'subject': 'contacto.formulario.tema',
+        'message': 'contacto.formulario.mensaje'
+    };
+    Object.entries(placeholders).forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if (el && window.t) {
+            const val = window.t(selectedLang, key);
+            if (val) el.placeholder = val;
+        }
+    });
+
+    // Translate nav links if they have data-i18n keys
+    document.querySelectorAll('#nav [data-i18n]').forEach(a => {
+        const key = a.getAttribute('data-i18n');
+        const val = window.t(selectedLang, key);
+        if (val) a.textContent = val;
+    });
+
+    // Translate special buttons (download CV, send)
+    const downloadBtn = document.getElementById('download-cv');
+    if (downloadBtn) {
+        const val = window.t(selectedLang, 'sobremi.botonCV');
+        if (val) downloadBtn.querySelector('[data-i18n]') ? downloadBtn.querySelector('[data-i18n]').textContent = val : downloadBtn.textContent = val;
+    }
+    const sendBtn = document.querySelector('#send-whatsapp');
+    if (sendBtn) {
+        const val = window.t(selectedLang, 'contacto.formulario.botonEnviar');
+        if (val) {
+            const span = sendBtn.querySelector('[data-i18n]');
+            if (span) span.textContent = val; else sendBtn.textContent = val;
         }
     }
 }
