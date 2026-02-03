@@ -1,18 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
 
 /* Default Theme (Dark Theme - Your Current Colors) */
 :root {
     /* Palette inspired by olaolu.dev — default dark mode variables (you can toggle .light-theme for light mode) */
-    --accent: #FF2D95;             /* magenta/pink accent */
-    --accent-hover: #FF1F7F;       /* slightly darker/saturated for hover */
+    --accent: #FF2D95;
+    /* magenta/pink accent */
+    --accent-hover: #FF1F7F;
+    /* slightly darker/saturated for hover */
 
     /* Dark mode (default) */
-    --fondo-principal: #121212;    /* deep dark background */
-    --fondo-secundario: #1A1A1A;   /* dark sections */
-    --texto-principal: #EAEAEA;    /* near-white text */
-    --texto-secundario: #B3B3B3;   /* secondary text */
-    --borde: #333333;              /* divisores en dark */
-    --sombra-accent: 0 8px 24px rgba(255,45,149,0.08); /* pink-ish soft shadow */
+    --fondo-principal: #121212;
+    /* deep dark background */
+    --fondo-secundario: #1A1A1A;
+    /* dark sections */
+    --texto-principal: #EAEAEA;
+    /* near-white text */
+    --texto-secundario: #B3B3B3;
+    /* secondary text */
+    --borde: #333333;
+    /* divisores en dark */
+    --sombra-accent: 0 8px 24px rgba(255, 45, 149, 0.08);
+    /* pink-ish soft shadow */
 }
 
 /* Light Theme Overrides (Add this class to your <body> tag to activate) */
@@ -21,22 +29,28 @@ body.light-theme {
     --accent: #FF2D95;
     --accent-hover: #FF1F7F;
 
-    --fondo-principal: #FFFFFF;   /* white soft */
-    --fondo-secundario: #F9F9F9;  /* very light section */
-    --texto-principal: #1A1A1A;   /* dark text */
-    --texto-secundario: #666666;  /* mid gray */
-    --borde: #E0E0E0;             /* light divider */
-    --sombra-accent: 0 8px 24px rgba(255,45,149,0.06);
+    --fondo-principal: #FFFFFF;
+    /* white soft */
+    --fondo-secundario: #F9F9F9;
+    /* very light section */
+    --texto-principal: #1A1A1A;
+    /* dark text */
+    --texto-secundario: #666666;
+    /* mid gray */
+    --borde: #E0E0E0;
+    /* light divider */
+    --sombra-accent: 0 8px 24px rgba(255, 45, 149, 0.06);
 }
 
 /* Base Styles */
-*{
+* {
     box-sizing: border-box;
     font-family: 'Work Sans';
     margin: 0;
     padding: 0;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -45,7 +59,8 @@ body {
     background: var(--fondo-principal);
     color: var(--texto-principal);
     padding-top: 80px;
-    transition: background 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
 
 /* TITULOS DESTACADOS */
@@ -56,7 +71,8 @@ h2 {
     margin-bottom: 40px;
     color: var(--accent);
     position: relative;
-    transition: color 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease;
+    /* Smooth theme transition */
 }
 
 h2::after {
@@ -68,7 +84,8 @@ h2::after {
     margin: 12px auto 0;
     border-radius: 2px;
     box-shadow: var(--sombra-accent);
-    transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    /* Smooth theme transition */
 }
 
 /* BOTONES MODERNOS */
@@ -88,20 +105,27 @@ button:hover {
 
 .redes a:hover {
     background: var(--accent-hover);
-    color: var(--fondo-principal); /* Text color adjusts to new background */
+    color: var(--fondo-principal);
+    /* Text color adjusts to new background */
     box-shadow: var(--sombra-accent);
     transform: scale(1.08);
 }
 
 /* NAV BAR */
 .contenedor-header {
-    height: 80px; /* Ajusta este valor al alto real de tu header */
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    position: fixed; /* Si quieres que el header se quede fijo al hacer scroll */
-    top: 0; /* Lo pega arriba */
+    height: 80px;
+    /* Ajusta este valor al alto real de tu header */
+    width: 100%;
+    /* Asegura que ocupe todo el ancho */
+    position: fixed;
+    /* Si quieres que el header se quede fijo al hacer scroll */
+    top: 0;
+    /* Lo pega arriba */
     left: 0;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    background-color: var(--fondo-principal); /* O el color de fondo de tu header */
+    z-index: 1000;
+    /* Asegura que esté por encima de otros elementos */
+    background-color: var(--fondo-principal);
+    /* O el color de fondo de tu header */
     /* ... otros estilos que ya tengas ... */
 }
 
@@ -118,8 +142,10 @@ button:hover {
 
 /* OVERLAY CON NEON */
 .portfolio .proyecto .overlay {
-    background: rgba(0, 229, 255, 0.9); /* Consider using a transparent version of color-destacado */
-    color: var(--fondo-principal); /* Text color adjusts to new background */
+    background: rgba(0, 229, 255, 0.9);
+    /* Consider using a transparent version of color-destacado */
+    color: var(--fondo-principal);
+    /* Text color adjusts to new background */
     box-shadow: var(--sombra-accent);
 }
 
@@ -127,13 +153,15 @@ button:hover {
 .contenedor-header nav ul li a:hover {
     color: var(--accent-hover);
     text-shadow: var(--sombra-accent);
-    transition: color 0.4s ease, text-shadow 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+    /* Smooth theme transition */
 }
 
 /* BARRA SKILLS */
 .skills .skill .barra-skill {
     background: var(--fondo-secundario);
-    transition: background 0.4s ease; /* Smooth theme transition */
+    transition: background 0.4s ease;
+    /* Smooth theme transition */
 }
 
 .skills .skill .progreso {
@@ -141,20 +169,23 @@ button:hover {
     height: 8px;
     border-radius: 5px;
     box-shadow: var(--sombra-accent);
-    transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    /* Smooth theme transition */
 }
 
 /* FOOTER */
 footer {
     background: var(--fondo-secundario);
     color: var(--texto-principal);
-    transition: background 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
 
 footer .arriba {
     background: var(--accent);
     box-shadow: var(--sombra-accent);
-    transition: background 0.4s ease, box-shadow 0.4s ease; /* Smooth theme transition */
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    /* Smooth theme transition */
 }
 
 /* BOTÓN WHATSAPP */
@@ -167,7 +198,7 @@ footer .arriba {
 
 .whatsapp-chat:hover {
     transform: scale(1.06);
-    box-shadow: 0 8px 20px rgba(255,45,149,0.08);
+    box-shadow: 0 8px 20px rgba(255, 45, 149, 0.08);
 }
 
 /* SOMBRAS EN SECCIONES */
@@ -176,7 +207,8 @@ footer .arriba {
 .curriculum .fila .item,
 .portfolio .proyecto,
 .contacto .col .info {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Remains somewhat dark for depth */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    /* Remains somewhat dark for depth */
     transition: all 0.3s ease;
 }
 
@@ -187,23 +219,52 @@ footer .arriba {
 
 /* EFECTO APARICIÓN */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.inicio, .sobremi, .skills, .curriculum, .portfolio, .contacto {
+.inicio,
+.sobremi,
+.skills,
+.curriculum,
+.portfolio,
+.contacto {
     animation: fadeIn 1s ease-in-out;
 }
 
 /* MENU */
-.contenedor-header{
+.contenedor-header {
+    background: rgba(26, 26, 26, 0.85);
+    /* Semi-transparent dark background */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 99;
+    transition: background 0.3s ease;
 }
-.contenedor-header header{
+
+/* Light theme translucent header */
+body.light-theme .contenedor-header {
+    background: rgba(255, 255, 255, 0.85);
+    /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contenedor-header header {
     max-width: 1100px;
     margin: auto;
     display: flex;
@@ -211,23 +272,28 @@ footer .arriba {
     align-items: center;
     padding: 15px 20px;
 }
-.contenedor-header header .controls{
-    display:flex;
-    align-items:center;
-    gap:12px;
+
+.contenedor-header header .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-.contenedor-header header .logo a{
+
+.contenedor-header header .logo a {
     font-family: 'Righteous';
     font-size: 20px;
     color: var(--accent);
     text-decoration: none;
-    transition: color 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease;
+    /* Smooth theme transition */
 }
-.contenedor-header header ul{
+
+.contenedor-header header ul {
     display: flex;
     list-style: none;
 }
-.contenedor-header header nav ul li a{
+
+.contenedor-header header nav ul li a {
     text-align: none;
     color: var(--texto-principal);
     margin: 0 15px;
@@ -235,31 +301,40 @@ footer .arriba {
     transition: .25s;
     text-decoration: none;
 }
-.contenedor-header header nav ul li a:hover{
-    color: var(--accent-hover); /* Use the accent hover color from theme */
+
+.contenedor-header header nav ul li a:hover {
+    color: var(--accent-hover);
+    /* Use the accent hover color from theme */
 }
-.nav-responsive{
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
-    color: var(--fondo-principal); /* Text color adjusts to new background */
+
+.nav-responsive {
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
+    color: var(--fondo-principal);
+    /* Text color adjusts to new background */
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     display: none;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
+
 /* SECCION I N I C I O */
-.inicio{
-    background: linear-gradient(to top, rgba(13, 10, 31, 0.8), rgba(13, 10, 31, 1)), /* This gradient might need adjustment for light theme */
-    url(img/fondo.jpg);
+.inicio {
+    background: linear-gradient(to top, rgba(13, 10, 31, 0.8), rgba(13, 10, 31, 1)),
+        /* This gradient might need adjustment for light theme */
+        url(img/fondo.jpg);
     color: var(--texto-principal);
     background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
 }
-.inicio .contenido-banner{
+
+.inicio .contenido-banner {
     padding: 28px 30px;
-    background: linear-gradient(135deg, rgb(146, 43, 95), rgba(255,45,149,0.02));
+    background: linear-gradient(135deg, rgb(146, 43, 95), rgba(255, 45, 149, 0.02));
     backdrop-filter: blur(6px) saturate(120%);
     -webkit-backdrop-filter: blur(6px) saturate(120%);
     max-width: 700px;
@@ -267,12 +342,14 @@ footer .arriba {
     text-align: center;
     border-radius: 18px;
     position: relative;
-    transition: background-color 0.4s ease, transform 0.3s ease; /* Smooth theme transition */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    transition: background-color 0.4s ease, transform 0.3s ease;
+    /* Smooth theme transition */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
-.inicio .contenido-banner img{
+
+.inicio .contenido-banner img {
     margin-top: 10px;
-    border: 6px solid rgba(0,0,0,0.12);
+    border: 6px solid rgba(0, 0, 0, 0.12);
     display: block;
     width: 140px;
     height: 140px;
@@ -281,22 +358,28 @@ footer .arriba {
     border-radius: 50%;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.inicio .contenido-banner h1{
+
+.inicio .contenido-banner h1 {
     color: var(--accent);
     margin-top: 18px;
     font-size: 38px;
     font-family: 'Righteous';
-    transition: color 0.4s ease, transform 0.3s ease; /* Smooth theme transition */
+    transition: color 0.4s ease, transform 0.3s ease;
+    /* Smooth theme transition */
 }
-.inicio .contenido-banner h2{
+
+.inicio .contenido-banner h2 {
     font-size: 15px;
     font-weight: normal;
 }
-.inicio .contenido-banner .redes a{
-    color: var(--texto-principal); /* Use primary text color for theme consistency */
+
+.inicio .contenido-banner .redes a {
+    color: var(--texto-principal);
+    /* Use primary text color for theme consistency */
     display: inline-block;
     text-decoration: none;
-    border: 1px solid var(--texto-principal); /* Border color adjusts to theme */
+    border: 1px solid var(--texto-principal);
+    /* Border color adjusts to theme */
     border-radius: 100%;
     width: 42px;
     height: 42px;
@@ -305,74 +388,94 @@ footer .arriba {
     font-size: 20px;
     transition: .3s;
 }
-.inicio .contenido-banner .redes a:hover{
-    background-color: var(--accent-hover); /* Uses accent hover color */
-    color: var(--fondo-principal); /* Text color adjusts to new background */
+
+.inicio .contenido-banner .redes a:hover {
+    background-color: var(--accent-hover);
+    /* Uses accent hover color */
+    color: var(--fondo-principal);
+    /* Text color adjusts to new background */
 }
-.sobremi{
+
+.sobremi {
     background-color: var(--fondo-principal);
     color: var(--texto-principal);
     padding: 40px 20px;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
-.sobremi .contenido-seccion{
+
+.sobremi .contenido-seccion {
     max-width: 1100px;
     margin: auto;
 }
-.sobremi h2{
+
+.sobremi h2 {
     font-size: 48px;
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
 }
-.sobremi .contenido-seccion p{
+
+.sobremi .contenido-seccion p {
     font: 18px;
     line-height: 22px;
     margin-bottom: 20px;
     color: var(--texto-secundario);
 }
-.sobremi .contenido-seccion p span{
+
+.sobremi .contenido-seccion p span {
     font-weight: bold;
 }
-.sobremi .fila{
+
+.sobremi .fila {
     display: flex;
 }
-.sobremi .fila .col
-{
+
+.sobremi .fila .col {
     width: 50%;
 }
-.sobremi .fila .col h3{
+
+.sobremi .fila .col h3 {
     font-size: 28px;
     font-family: 'Righteous';
     margin-bottom: 25px;
 }
-.sobremi .fila .col ul{
+
+.sobremi .fila .col ul {
     list-style: none;
 }
-.sobremi .fila .col ul li{
+
+.sobremi .fila .col ul li {
     margin: 12px 0;
 }
-.sobremi .fila .col ul li strong{
+
+.sobremi .fila .col ul li strong {
     display: inline-block;
     color: var(--accent);
     width: 130px;
-    transition: color 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease;
+    /* Smooth theme transition */
 }
-.sobremi .fila .col ul li span{
+
+.sobremi .fila .col ul li span {
     background-color: var(--accent);
     padding: 3px;
     font-weight: bold;
     border-radius: 5px;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.sobremi .fila .col .contenedor-intereses{
+
+.sobremi .fila .col .contenedor-intereses {
     display: flex;
     flex-wrap: wrap;
 }
-.sobremi .fila .col .contenedor-intereses .interes{
+
+.sobremi .fila .col .contenedor-intereses .interes {
     width: 120px;
     height: 100px;
-    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+    background-color: var(--fondo-secundario);
+    /* Uses secondary background for theme consistency */
     border-radius: 10px;
     margin: 0 15px 15px 0;
     display: flex;
@@ -382,110 +485,138 @@ footer .arriba {
     transition: .3s;
     text-align: center;
     font-size: 12px;
-}.sobremi .fila .col .contenedor-intereses .interes:hover{
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
 }
-.sobremi .fila .col .contenedor-intereses .interes i{
+
+.sobremi .fila .col .contenedor-intereses .interes:hover {
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
+}
+
+.sobremi .fila .col .contenedor-intereses .interes i {
     font-size: 30px;
     margin-bottom: 10px;
 }
-.sobremi button{
+
+.sobremi button {
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid var(--texto-principal); /* Border color adjusts to theme */
+    border: 2px solid var(--texto-principal);
+    /* Border color adjusts to theme */
     width: fit-content;
     display: block;
     margin: 20px auto;
     padding: 10px 22px;
     font-size: 16px;
-    color: var(--texto-principal); /* Text color adjusts to theme */
+    color: var(--texto-principal);
+    /* Text color adjusts to theme */
     position: relative;
     z-index: 10;
-    transition: border-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: border-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
-.sobremi button .overlay{
+
+.sobremi button .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
     z-index: -1;
     transition: 1s;
 }
-.sobremi button:hover .overlay{
+
+.sobremi button:hover .overlay {
     width: 100%;
 }
+
 /* SECCION S K I L L S */
-.skills{
+.skills {
     background-color: var(--fondo-principal);
     color: var(--texto-principal);
     padding: 50px 20px;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
-.skills .contenido-seccion{
+
+.skills .contenido-seccion {
     max-width: 1100px;
     margin: auto;
 }
-.skills h2{
+
+.skills h2 {
     font-size: 48px;
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
 }
-.skills .fila{
+
+.skills .fila {
     display: flex;
 }
-.skills .fila .col{
+
+.skills .fila .col {
     width: 50%;
     padding: 0 20px;
 }
-.skills .fila .col h3{
+
+.skills .fila .col h3 {
     font-size: 28px;
     font-family: 'Righteous';
     margin-bottom: 25px;
 }
-.skills .skill > span{
+
+.skills .skill>span {
     font-weight: bold;
     display: block;
     margin-bottom: 10px;
 }
-.skills .skill .barra-skill{
+
+.skills .skill .barra-skill {
     height: 8px;
     width: 80%;
-    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+    background-color: var(--fondo-secundario);
+    /* Uses secondary background for theme consistency */
     position: relative;
     margin-bottom: 30px;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
 
 .barra-skill {
     width: 100%;
     height: 10px;
-    background: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+    background: var(--fondo-secundario);
+    /* Uses secondary background for theme consistency */
     border-radius: 5px;
     margin: 10px 0;
     overflow: hidden;
     position: relative;
-    transition: background 0.4s ease; /* Smooth theme transition */
+    transition: background 0.4s ease;
+    /* Smooth theme transition */
 }
 
 .progreso {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, var(--accent), var(--accent-hover)); /* Uses theme's accent colors */
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    /* Uses theme's accent colors */
     border-radius: 5px;
-    transition: width 1.5s ease-in-out, background 0.4s ease; /* Smooth theme transition */
+    transition: width 1.5s ease-in-out, background 0.4s ease;
+    /* Smooth theme transition */
 }
 
-.skills .skill .progreso{
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
+.skills .skill .progreso {
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
     position: absolute;
     top: 0;
     left: 0;
     height: 8px;
 }
-.skills .skill .barra-skill span{
+
+.skills .skill .barra-skill span {
     position: absolute;
     height: 40px;
     width: 40px;
@@ -498,10 +629,15 @@ footer .arriba {
 }
 
 /* Common Section Styles (already adjusted to use variables) */
-.sobremi h2, .skills h2, .curriculum h2, .portfolio h2, .contacto h2 {
+.sobremi h2,
+.skills h2,
+.curriculum h2,
+.portfolio h2,
+.contacto h2 {
     color: var(--accent);
     transition: color 0.4s ease;
 }
+
 .sobremi .contenido-seccion p span,
 .skills .skill .barra-skill span,
 .portfolio .galeria .proyecto .overlay,
@@ -516,218 +652,320 @@ footer .redes a {
 }
 
 /* These classes will be dynamically added by javascript */
-.skills .skill .javascript{
+.skills .skill .javascript {
     width: 0%;
     animation: 2s javascript forwards;
 }
+
 @keyframes javascript {
-    0%{width: 0%;}
-    100%{width: 65%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 65%;
+    }
 }
 
-.skills .skill .htmlcss{
+.skills .skill .htmlcss {
     width: 0%;
     animation: 2s htmlcss forwards;
 }
+
 @keyframes htmlcss {
-    0%{width: 0%;}
-    100%{width: 80%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
 }
 
-.skills .skill .photoshop{
+.skills .skill .photoshop {
     width: 0%;
     animation: 2s photoshop forwards;
 }
+
 @keyframes photoshop {
-    0%{width: 0%;}
-    100%{width: 60%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
 }
 
-.skills .skill .wordpress{
+.skills .skill .wordpress {
     width: 0%;
     animation: 2s wordpress forwards;
 }
+
 @keyframes wordpress {
-    0%{width: 0%;}
-    100%{width: 80%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
 }
 
-.skills .skill .drupal{
+.skills .skill .drupal {
     width: 0%;
     animation: 2s drupal forwards;
 }
+
 @keyframes drupal {
-    0%{width: 0%;}
-    100%{width: 50%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 50%;
+    }
 }
 
-.skills .skill .comunicacion{
+.skills .skill .comunicacion {
     width: 0%;
     animation: 2s comunicacion forwards;
 }
+
 @keyframes comunicacion {
-    0%{width: 0%;}
-    100%{width: 80%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
 }
 
-.skills .skill .trabajo{
+.skills .skill .trabajo {
     width: 0%;
     animation: 2s trabajo forwards;
 }
+
 @keyframes trabajo {
-    0%{width: 0%;}
-    100%{width: 70%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 70%;
+    }
 }
 
-.skills .skill .creatividad{
+.skills .skill .creatividad {
     width: 0%;
     animation: 2s creatividad forwards;
 }
+
 @keyframes creatividad {
-    0%{width: 0%;}
-    100%{width: 80%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
 }
 
-.skills .skill .dedicacion{
+.skills .skill .dedicacion {
     width: 0%;
     animation: 2s dedicacion forwards;
 }
+
 @keyframes dedicacion {
-    0%{width: 0%;}
-    100%{width: 65%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 65%;
+    }
 }
 
-.skills .skill .proyect{
+.skills .skill .proyect {
     width: 0%;
     animation: 2s proyect forwards;
 }
+
 @keyframes proyect {
-    0%{width: 0%;}
-    100%{width: 60%;}
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
 }
+
 /* SECCION CURRICULUM */
-.curriculum{
+.curriculum {
     background-color: var(--fondo-principal);
     color: var(--texto-principal);
     padding: 50px 20px;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .contenido-seccion{
+
+.curriculum .contenido-seccion {
     max-width: 1100px;
     margin: auto;
 }
-.curriculum h2{
+
+.curriculum h2 {
     font-size: 48px;
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
 }
-.curriculum .fila{
+
+.curriculum .fila {
     display: flex;
     justify-content: space-between;
 }
-.curriculum .fila .col{
+
+.curriculum .fila .col {
     width: 49%;
     padding: 0 20px;
 }
-.curriculum .fila .col h3{
+
+.curriculum .fila .col h3 {
     font-size: 28px;
     font-family: 'Righteous';
     margin-bottom: 25px;
 }
-.curriculum .fila .izquierda{
-    border-right: 2px solid var(--fondo-secundario); /* Uses secondary background for border */
-    transition: border-color 0.4s ease; /* Smooth theme transition */
+
+.curriculum .fila .izquierda {
+    border-right: 2px solid var(--fondo-secundario);
+    /* Uses secondary background for border */
+    transition: border-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .derecha{
-    border-left: 2px solid var(--fondo-secundario); /* Uses secondary background for border */
-    transition: border-color 0.4s ease; /* Smooth theme transition */
+
+.curriculum .fila .derecha {
+    border-left: 2px solid var(--fondo-secundario);
+    /* Uses secondary background for border */
+    transition: border-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item{
+
+.curriculum .fila .item {
     padding: 25px;
     margin-bottom: 30px;
-    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+    background-color: var(--fondo-secundario);
+    /* Uses secondary background for theme consistency */
     position: relative;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item h4{
+
+.curriculum .fila .item h4 {
     font-size: 20px;
     margin-bottom: 10px;
 }
-.curriculum .fila .item .casa{
+
+.curriculum .fila .item .casa {
     color: var(--accent);
     font-size: 22px;
     font-weight: bold;
     display: block;
-    transition: color 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item .fecha{
+
+.curriculum .fila .item .fecha {
     display: block;
     color: var(--accent);
     margin-bottom: 10px;
-    transition: color 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item p{
+
+.curriculum .fila .item p {
     line-height: 24px;
 }
-.curriculum .fila .izq{
-    border-right: 2px solid var(--accent); /* Uses accent color for border */
+
+.curriculum .fila .izq {
+    border-right: 2px solid var(--accent);
+    /* Uses accent color for border */
     margin-right: 20px;
-    transition: border-color 0.4s ease; /* Smooth theme transition */
+    transition: border-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .der{
-    border-left: 2px solid var(--accent); /* Uses accent color for border */
+
+.curriculum .fila .der {
+    border-left: 2px solid var(--accent);
+    /* Uses accent color for border */
     margin-left: 20px;
-    transition: border-color 0.4s ease; /* Smooth theme transition */
+    transition: border-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item .conectori{
+
+.curriculum .fila .item .conectori {
     height: 2px;
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
     width: 47px;
     position: absolute;
     top: 50%;
     right: -47px;
     z-index: 5;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item .conectori .circuloi{
+
+.curriculum .fila .item .conectori .circuloi {
     display: block;
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
     float: right;
     position: relative;
     bottom: 4px;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item .conectord{
+
+.curriculum .fila .item .conectord {
     height: 2px;
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
     width: 47px;
     position: absolute;
     top: 50%;
     left: -47px;
     z-index: 5;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.curriculum .fila .item .conectord .circulod{
+
+.curriculum .fila .item .conectord .circulod {
     display: block;
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
     float: left;
     position: relative;
     bottom: 4px;
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
+
 /* SECCION PORTFOLIO */
 .portfolio {
     background-color: var(--fondo-principal);
     color: var(--texto-principal);
     padding: 50px 20px;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
 
 .portfolio .contenido-seccion {
@@ -767,8 +1005,9 @@ footer .redes a {
 
 /* Efecto de overlay */
 .portfolio .proyecto .overlay {
-    background: linear-gradient(180deg, rgba(0,255,110,0.95), rgba(0,160,80,0.95));
-    color: var(--fondo-principal); /* Text color adjusts to new background */
+    background: linear-gradient(180deg, rgba(0, 255, 110, 0.95), rgba(0, 160, 80, 0.95));
+    color: var(--fondo-principal);
+    /* Text color adjusts to new background */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -776,7 +1015,6 @@ footer .redes a {
     text-align: center;
     font-size: 16px;
     letter-spacing: 0.6px;
-    opacity: 0;
     transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
     border-radius: 8px;
     padding: 18px;
@@ -795,8 +1033,10 @@ footer .redes a {
 }
 
 .portfolio .overlay a {
-    color: var(--texto-principal); /* Uses primary text color for theme consistency */
-    background: var(--accent); /* Uses accent color from theme */
+    color: var(--texto-principal);
+    /* Uses primary text color for theme consistency */
+    background: var(--accent);
+    /* Uses accent color from theme */
     padding: 8px 12px;
     text-decoration: none;
     border-radius: 5px;
@@ -807,111 +1047,210 @@ footer .redes a {
 }
 
 .portfolio .overlay a:hover {
-    background: var(--accent-hover); /* Changes to accent hover on hover */
+    background: var(--accent-hover);
+    /* Changes to accent hover on hover */
 }
+
+/* Technology Badges */
+.tech-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 12px 0;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+/* Statistics Section */
+.stats {
+    background: var(--fondo-secundario);
+    padding: 60px 20px;
+    transition: background 0.4s ease;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 30px;
+    background: var(--fondo-principal);
+    border-radius: 12px;
+    box-shadow: var(--sombra-accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(255, 45, 149, 0.15);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    font-family: 'Righteous', sans-serif;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: var(--texto-secundario);
+    font-weight: 500;
+}
+
 /* SECCION CONTACTO */
-.contacto{
-    background-image: url(img/contact_bg.png); /* Consider a different background for light theme */
+.contacto {
+    background-image: url(img/contact_bg.png);
+    /* Consider a different background for light theme */
     background-color: var(--fondo-principal);
     color: var(--texto-principal);
     padding: 50px 0;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
-.contacto .contenido-seccion{
+
+.contacto .contenido-seccion {
     max-width: 1100px;
     margin: auto;
 }
-.contacto h2{
+
+.contacto h2 {
     font-size: 48px;
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
 }
-.contacto .fila{
+
+.contacto .fila {
     display: flex;
 }
-.contacto .col{
+
+.contacto .col {
     width: 50%;
     padding: 10px;
     position: relative;
 }
-.contacto .col input, .contacto .col textarea{
+
+.contacto .col input,
+.contacto .col textarea {
     display: block;
     width: 100%;
     padding: 18px;
     border: 1px solid var(--borde);
     margin-bottom: 20px;
-    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
-    color: var(--texto-principal); /* Text color adjusts to theme */
+    background-color: var(--fondo-secundario);
+    /* Uses secondary background for theme consistency */
+    color: var(--texto-principal);
+    /* Text color adjusts to theme */
     font-size: 18px;
-    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.2s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.2s ease;
+    /* Smooth theme transition */
 }
-.contacto button{
+
+.contacto button {
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid var(--texto-principal); /* Border color adjusts to theme */
+    border: 2px solid var(--texto-principal);
+    /* Border color adjusts to theme */
     width: fit-content;
     display: block;
     margin: 20px auto;
     padding: 10px 22px;
     font-size: 16px;
-    color: var(--texto-principal); /* Text color adjusts to theme */
+    color: var(--texto-principal);
+    /* Text color adjusts to theme */
     position: relative;
     z-index: 10;
-    transition: border-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: border-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
-.contacto button .overlay{
+
+.contacto button .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
     z-index: -1;
     transition: 1s;
 }
-.contacto button:hover .overlay{
+
+.contacto button:hover .overlay {
     width: 100%;
 }
-.contacto .col img{
+
+.contacto .col img {
     width: 100%;
 }
-.contacto .col .info{
+
+.contacto .col .info {
     position: absolute;
     top: 40%;
-    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+    background-color: var(--fondo-secundario);
+    /* Uses secondary background for theme consistency */
     padding: 20px;
     max-width: 350px;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: background-color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease;
+    /* Smooth theme transition */
 }
-.contacto .col .info ul{
+
+.contacto .col .info ul {
     list-style: none;
 }
-.contacto .col .info ul li{
+
+.contacto .col .info ul li {
     margin-bottom: 20px;
 }
-.contacto .col .info ul li i{
+
+.contacto .col .info ul li i {
     color: var(--accent);
     display: inline-block;
     margin-right: 20px;
-    transition: color 0.4s ease; /* Smooth theme transition */
+    transition: color 0.4s ease;
+    /* Smooth theme transition */
 }
-footer{
-    background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
-    color: var(--texto-principal); /* Text color adjusts to theme */
+
+footer {
+    background-color: var(--fondo-secundario);
+    /* Uses secondary background for theme consistency */
+    color: var(--texto-principal);
+    /* Text color adjusts to theme */
     padding: 50px 0 30px 0;
     text-align: center;
     position: relative;
     width: 100%;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
-footer .redes{
+
+footer .redes {
     margin-bottom: 20px;
 }
-footer .redes a{
-    color: var(--texto-principal); /* Text color adjusts to theme */
+
+footer .redes a {
+    color: var(--texto-principal);
+    /* Text color adjusts to theme */
     display: inline-block;
     text-decoration: none;
     border: 1px solid var(--accent);
@@ -923,16 +1262,22 @@ footer .redes a{
     font-size: 20px;
     transition: .3s;
 }
-footer .redes a:hover{
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
-    color: var(--fondo-principal); /* Text color adjusts to new background */
+
+footer .redes a:hover {
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
+    color: var(--fondo-principal);
+    /* Text color adjusts to new background */
 }
-footer .arriba{
+
+footer .arriba {
     display: block;
     width: 50px;
     height: 50px;
-    background-color: var(--accent-hover); /* Uses accent hover color from theme */
-    color: var(--fondo-principal); /* Text color adjusts to new background */
+    background-color: var(--accent-hover);
+    /* Uses accent hover color from theme */
+    color: var(--fondo-principal);
+    /* Text color adjusts to new background */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -940,8 +1285,10 @@ footer .arriba{
     border-radius: 50%;
     line-height: 50px;
     font-size: 18px;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth theme transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Smooth theme transition */
 }
+
 .contacto .fila {
     position: relative;
 }
@@ -951,7 +1298,8 @@ footer .arriba{
     right: -60px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #25D366; /* Kept fixed for WhatsApp green */
+    background-color: #25D366;
+    /* Kept fixed for WhatsApp green */
     color: white;
     font-size: 30px;
     padding: 15px;
@@ -960,74 +1308,91 @@ footer .arriba{
     transition: 0.3s;
     z-index: 10;
 }
+
 .whatsapp-chat:hover {
     background-color: #1EBE5D;
 }
 
 
 /* SECCION RESPONSIVE */
-@media screen and (max-width:980px){
+@media screen and (max-width:980px) {
 
     .contenedor-header {
-        height: auto; /* Permite que el alto se ajuste al contenido (logo + selector + nav responsive) */
+        height: auto;
+        /* Permite que el alto se ajuste al contenido (logo + selector + nav responsive) */
     }
+
     body {
         /* Un padding-top mayor para acomodar el header responsive si crece */
         /* Tendrás que ajustar este valor viendo cómo se comporta tu header responsive */
-        padding-top: 150px; /* Ejemplo, ajústalo según tu diseño responsive */
+        padding-top: 150px;
+        /* Ejemplo, ajústalo según tu diseño responsive */
     }
-    nav.responsive{
+
+    nav.responsive {
         display: block;
         position: absolute;
         right: 0;
         top: 75px;
-        background-color: var(--fondo-secundario); /* Uses secondary background for theme consistency */
+        background-color: var(--fondo-secundario);
+        /* Uses secondary background for theme consistency */
         width: 180px;
-        transition: background-color 0.4s ease; /* Smooth theme transition */
+        transition: background-color 0.4s ease;
+        /* Smooth theme transition */
     }
 }
-@media screen and (max-width:700px){
-    .sobremi .fila{
+
+@media screen and (max-width:700px) {
+    .sobremi .fila {
         display: block;
     }
-    .sobremi .fila .col{
+
+    .sobremi .fila .col {
         width: fit-content;
     }
 
-    .skills .fila{
+    .skills .fila {
         display: block;
     }
-    .skills .fila .col{
-        width: 100%;
-    }
-    .skills .fila .col .barra-skill{
+
+    .skills .fila .col {
         width: 100%;
     }
 
-    .curriculum .fila{
+    .skills .fila .col .barra-skill {
+        width: 100%;
+    }
+
+    .curriculum .fila {
         display: block;
     }
-    .curriculum .fila .col{
+
+    .curriculum .fila .col {
         width: 90%;
     }
-    .curriculum .fila .derecha{
+
+    .curriculum .fila .derecha {
         margin-left: 20px;
     }
 
-    .portfolio .galeria{
+    .portfolio .galeria {
         display: block;
         width: 100%;
     }
-    .portfolio .galeria .proyecto{
+
+    .portfolio .galeria .proyecto {
         max-width: 100%;
     }
-    .portfolio .galeria .proyecto img{
+
+    .portfolio .galeria .proyecto img {
         width: 100%;
     }
-    .contacto .fila{
+
+    .contacto .fila {
         display: block;
     }
-    .contacto .fila .col{
+
+    .contacto .fila .col {
         width: 100%;
     }
 }

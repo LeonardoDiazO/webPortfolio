@@ -54,6 +54,56 @@ const translations = {
             titulo: "Curriculum",
             educacion: "Educación",
             experiencia: "Experiencia de trabajo",
+            edu1: {
+                titulo: "Ingeniería de Sistemas y Computación",
+                institucion: "Universidad CUL",
+                fecha: "2024",
+                descripcion: "Formación en desarrollo de software, arquitectura de sistemas y seguridad informática."
+            },
+            edu2: {
+                titulo: "Diplomado en Seguridad Informática",
+                institucion: "Universidad CUL",
+                fecha: "2023",
+                descripcion: "Especialización en ciberseguridad, gestión de riesgos y protección de datos."
+            },
+            edu3: {
+                titulo: "Bachiller Académico",
+                institucion: "Colegio Distrital Olaya",
+                fecha: "2007",
+                descripcion: "Formación académica general con énfasis en ciencias y matemáticas."
+            },
+            exp1: {
+                titulo: "Desarrollador de Software",
+                empresa: "Hypersoft",
+                fecha: "22/06/2022 - Actualmente (Barranquilla, Colombia)",
+                descripcion: "Diseño y desarrollo de interfaces dinámicas, implementación de backend en Java y gestión de bases de datos SQL.",
+                logros: "Logros:",
+                logrosTexto: "Mejoré la eficiencia del sistema en un 20% y reduje errores en bases de datos en un 15%."
+            },
+            exp2: {
+                titulo: "Jefe Comercial",
+                empresa: "Hypersoft",
+                fecha: "01/03/2021 - 22/06/2022 (Barranquilla, Colombia)",
+                descripcion: "Liderazgo de equipos comerciales, gestión de clientes y estrategias de ventas.",
+                logros: "Logros:",
+                logrosTexto: "Incrementé las ventas en un 12% y mejoré la retención de clientes en un 18%."
+            },
+            exp3: {
+                titulo: "Administrador Comercial",
+                empresa: "Mega Tiendas",
+                fecha: "10/11/2021 - 30/12/2021 (Cartagena, Colombia)",
+                descripcion: "Gestión de ventas, abastecimiento y control de inventarios.",
+                logros: "Logros:",
+                logrosTexto: "Reduje productos agotados en un 10% mediante estrategias de control de inventarios."
+            },
+            exp4: {
+                titulo: "Líder de Ventas PGC",
+                empresa: "Almacenes Éxito",
+                fecha: "16/07/2011 - 04/03/2021 (Barranquilla, Colombia)",
+                descripcion: "Coordinación de estrategias de ventas y abastecimiento para garantizar la eficiencia operativa.",
+                logros: "Logros:",
+                logrosTexto: "Incrementé la participación en el mercado en un 12% con estrategias de promoción y ventas."
+            }
         },
         portfolio: {
             titulo: "PORTFOLIO",
@@ -150,6 +200,56 @@ const translations = {
             titulo: "Resume",
             educacion: "Education",
             experiencia: "Work Experience",
+            edu1: {
+                titulo: "Systems and Computer Engineering",
+                institucion: "CUL University",
+                fecha: "2024",
+                descripcion: "Training in software development, systems architecture and computer security."
+            },
+            edu2: {
+                titulo: "Diploma in Computer Security",
+                institucion: "CUL University",
+                fecha: "2023",
+                descripcion: "Specialization in cybersecurity, risk management and data protection."
+            },
+            edu3: {
+                titulo: "Academic High School Diploma",
+                institucion: "Olaya District School",
+                fecha: "2007",
+                descripcion: "General academic training with emphasis on science and mathematics."
+            },
+            exp1: {
+                titulo: "Software Developer",
+                empresa: "Hypersoft",
+                fecha: "06/22/2022 - Present (Barranquilla, Colombia)",
+                descripcion: "Design and development of dynamic interfaces, Java backend implementation and SQL database management.",
+                logros: "Achievements:",
+                logrosTexto: "Improved system efficiency by 20% and reduced database errors by 15%."
+            },
+            exp2: {
+                titulo: "Commercial Manager",
+                empresa: "Hypersoft",
+                fecha: "03/01/2021 - 06/22/2022 (Barranquilla, Colombia)",
+                descripcion: "Leadership of commercial teams, client management and sales strategies.",
+                logros: "Achievements:",
+                logrosTexto: "Increased sales by 12% and improved client retention by 18%."
+            },
+            exp3: {
+                titulo: "Commercial Administrator",
+                empresa: "Mega Tiendas",
+                fecha: "11/10/2021 - 12/30/2021 (Cartagena, Colombia)",
+                descripcion: "Sales management, supply and inventory control.",
+                logros: "Achievements:",
+                logrosTexto: "Reduced out-of-stock products by 10% through inventory control strategies."
+            },
+            exp4: {
+                titulo: "PGC Sales Leader",
+                empresa: "Almacenes Éxito",
+                fecha: "07/16/2011 - 03/04/2021 (Barranquilla, Colombia)",
+                descripcion: "Coordination of sales and supply strategies to ensure operational efficiency.",
+                logros: "Achievements:",
+                logrosTexto: "Increased market share by 12% with promotion and sales strategies."
+            }
         },
         portfolio: {
             titulo: "PORTFOLIO",

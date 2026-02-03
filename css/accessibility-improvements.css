@@ -1,0 +1,208 @@
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   Add these styles to your main css.css file
+   ======================================== */
+
+/* Screen Reader Only Content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Skip Navigation Link */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent);
+    color: white;
+    padding: 8px 16px;
+    z-index: 100;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0 0 4px 0;
+    transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* ========================================
+   IMPROVED LIGHT THEME COLORS
+   Replace the existing light-theme block
+   ======================================== */
+
+body.light-theme {
+    /* Light theme variables - Better contrast */
+    --accent: #E91E63;
+    --accent-hover: #C2185B;
+
+    --fondo-principal: #FAFAFA;
+    /* Gris muy claro */
+    --fondo-secundario: #FFFFFF;
+    /* Blanco para cards */
+    --texto-principal: #212121;
+    /* Negro más suave */
+    --texto-secundario: #757575;
+    /* Gris medio */
+    --borde: #E0E0E0;
+    /* Borde claro */
+    --sombra-accent: 0 8px 24px rgba(233, 30, 99, 0.12);
+}
+
+/* ========================================
+   ENHANCED PROFILE IMAGE EFFECTS
+   ======================================== */
+
+.inicio .contenido-banner img {
+    border: 4px solid var(--accent);
+    box-shadow:
+        0 0 30px rgba(255, 45, 149, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.inicio .contenido-banner img:hover {
+    transform: scale(1.08) rotate(2deg);
+    box-shadow:
+        0 0 50px rgba(255, 45, 149, 0.5),
+        0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================
+   IMPROVED TYPOGRAPHY
+   ======================================== */
+
+/* Better line height for paragraphs */
+p {
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Tighter letter spacing for headings */
+h1,
+h2,
+h3 {
+    letter-spacing: -0.5px;
+}
+
+/* ========================================
+   SCROLL PROGRESS INDICATOR (OPTIONAL)
+   Add this HTML to your body: <div class="scroll-progress"></div>
+   ======================================== */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.2s ease;
+}
+
+/* ========================================
+   ENHANCED ANIMATIONS
+   ======================================== */
+
+/* Slide in up animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply to curriculum items and portfolio projects */
+.curriculum .item,
+.portfolio .proyecto {
+    animation: slideInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+/* Stagger animation delays */
+.curriculum .item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.curriculum .item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.curriculum .item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.portfolio .proyecto:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.portfolio .proyecto:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.portfolio .proyecto:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.portfolio .proyecto:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Ripple effect for buttons */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========================================
+   FOCUS STYLES FOR BETTER ACCESSIBILITY
+   ======================================== */
+
+/* Visible focus for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Remove outline for mouse users (optional) */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
+}
