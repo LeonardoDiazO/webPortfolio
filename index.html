@@ -6,28 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="img/perfil.png" type="image/x-icon">
+    <!-- SEO Meta Tags -->
+    <title>Leonardo Díaz - Ingeniero de Sistemas | Desarrollador Full Stack</title>
+    <meta name="description"
+        content="Portafolio de Leonardo Díaz, Ingeniero de Sistemas con +3 años de experiencia en desarrollo web con Angular, Node.js y Java. Especializado en soluciones escalables y centradas en el usuario.">
+    <meta name="keywords"
+        content="desarrollador web, ingeniero de sistemas, Angular, Node.js, Java, Spring Boot, full stack developer, Barranquilla, Colombia">
+    <meta name="author" content="Leonardo Díaz">
+    <meta name="robots" content="index, follow">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leonardodiaz.dev/">
+    <meta property="og:title" content="Leonardo Díaz - Desarrollador Full Stack">
+    <meta property="og:description"
+        content="Portafolio profesional de Leonardo Díaz, especializado en desarrollo web moderno con Angular, Node.js y Java.">
+    <meta property="og:image" content="https://leonardodiaz.dev/img/perfil.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://leonardodiaz.dev/">
+    <meta property="twitter:title" content="Leonardo Díaz - Desarrollador Full Stack">
+    <meta property="twitter:description" content="Portafolio profesional de Leonardo Díaz">
+    <meta property="twitter:image" content="https://leonardodiaz.dev/img/perfil.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="img/favicon.png">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Leonardo Díaz</title>
-
-    <link rel="stylesheet" href="css/css.css">
-    <!-- Tailwind Play CDN (for quick prototyping) -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS (Animate On Scroll) CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/css.css">
 </head>
 
 <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#inicio" class="skip-to-content"></a>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
     <div class="contenedor-header">
         <header>
             <div class="logo">
-                <a href="">Leonardo Díaz</a>
+                <a href="#inicio" aria-label="Leonardo Díaz - Inicio">Leonardo Díaz</a>
             </div>
-            <nav id="nav" aria-label="Main navigation">
+            <nav id="nav" aria-label="Navegación principal">
                 <ul>
                     <li><a href="#inicio" data-i18n="menu.inicio" onclick="seleccionar()">INICIO</a></li>
                     <li><a href="#sobremi" data-i18n="menu.sobremi" onclick="seleccionar()">SOBRE MI</a></li>
@@ -43,7 +79,8 @@
                                 <option value="light">Claro</option>
                             </select>
                             <label for="language-selector" style="font-size:13px;margin-left:8px;">IDIOMA</label>
-                            <select id="language-selector" aria-label="Seleccionar idioma" style="border-radius: 10px;" onchange="changeLanguage()">
+                            <select id="language-selector" aria-label="Seleccionar idioma" style="border-radius: 10px;"
+                                onchange="changeLanguage()">
                                 <option value="es">ES</option>
                                 <option value="en">EN</option>
                             </select>
@@ -51,7 +88,8 @@
                     </li>
                 </ul>
             </nav>
-            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()" aria-label="Abrir menú de navegación"
+                role="button" tabindex="0">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </header>
@@ -60,7 +98,7 @@
     <section id="inicio" class="inicio" data-aos="fade-up">
         <div class="contenido-banner">
             <div class="contenedor-img">
-                <img src="img/perfil.png" alt="">
+                <img src="img/perfil.png" alt="Foto de perfil de Leonardo Díaz, Ingeniero de Sistemas">
             </div>
             <h1 data-i18n="inicio.nombre">Leonardo Diaz</h1>
             <h2 data-i18n="inicio.titulo">Ingeniero de Sistemas | Desarrollador de Software</h2>
@@ -78,10 +116,15 @@
         <div class="contenido-seccion">
             <h2 data-i18n="sobremi.titulo">Sobre Mí</h2>
             <p data-i18n="sobremi.descripcion">
-                Hola, soy Leonardo Diaz. Soy Ingeniero de Sistemas con más de 3 años de experiencia en desarrollo de software, especializado en tecnologías modernas como Angular, Node.js y Java. Me apasiona crear soluciones tecnológicas eficientes, escalables y centradas en el usuario. Además, mi experiencia previa como líder de ventas en productos de gran consumo me ha brindado habilidades sólidas en gestión de equipos, enfoque al cliente y cumplimiento de objetivos estratégicos.
+                Hola, soy Leonardo Diaz. Soy Ingeniero de Sistemas con más de 3 años de experiencia en desarrollo de
+                software, especializado en tecnologías modernas como Angular, Node.js y Java. Me apasiona crear
+                soluciones tecnológicas eficientes, escalables y centradas en el usuario. Además, mi experiencia previa
+                como líder de ventas en productos de gran consumo me ha brindado habilidades sólidas en gestión de
+                equipos, enfoque al cliente y cumplimiento de objetivos estratégicos.
             </p>
 
-            <button id="download-cv" onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
+            <button id="download-cv"
+                onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
                 <span data-i18n="sobremi.botonCV">Descargar CV</span> <i class="fa-solid fa-download"></i>
                 <span class="overlay"></span>
             </button>
@@ -99,7 +142,8 @@
                         </li>
                         <li>
                             <strong data-i18n="sobremi.datosPersonales.cargo">Cargo</strong>
-                            <span data-i18n="sobremi.datosPersonales.cargo">Desarrollador de software - Programador</span>
+                            <span data-i18n="sobremi.datosPersonales.cargo">Desarrollador de software -
+                                Programador</span>
                         </li>
                     </ul>
                 </div>
@@ -209,6 +253,30 @@
         </div>
     </section>
 
+    <!-- Statistics Section -->
+    <section class="stats" data-aos="fade-up">
+        <div class="contenido-seccion">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20%</div>
+                    <div class="stat-label">Mejora de Eficiencia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Reducción de Errores</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12%</div>
+                    <div class="stat-label">Incremento en Ventas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <section id="curriculum" class="curriculum" data-aos="fade-up">
         <div class="contenido-seccion">
@@ -217,28 +285,31 @@
                 <div class="col izquierda">
                     <h3 data-i18n="curriculum.educacion">Educación</h3>
                     <div class="item izq">
-                        <h4>Ingeniería de Sistemas y Computación</h4>
-                        <span class="casa">Universidad CUL</span>
-                        <span class="fecha">2024</span>
-                        <p>Formación en desarrollo de software, arquitectura de sistemas y seguridad informática.</p>
+                        <h4 data-i18n="curriculum.edu1.titulo">Ingeniería de Sistemas y Computación</h4>
+                        <span class="casa" data-i18n="curriculum.edu1.institucion">Universidad CUL</span>
+                        <span class="fecha" data-i18n="curriculum.edu1.fecha">2024</span>
+                        <p data-i18n="curriculum.edu1.descripcion">Formación en desarrollo de software, arquitectura de
+                            sistemas y seguridad informática.</p>
                         <div class="conectori">
                             <div class="circuloi"></div>
                         </div>
                     </div>
                     <div class="item izq">
-                        <h4>Diplomado en Seguridad Informática</h4>
-                        <span class="casa">Universidad CUL</span>
-                        <span class="fecha">2023</span>
-                        <p>Especialización en ciberseguridad, gestión de riesgos y protección de datos.</p>
+                        <h4 data-i18n="curriculum.edu2.titulo">Diplomado en Seguridad Informática</h4>
+                        <span class="casa" data-i18n="curriculum.edu2.institucion">Universidad CUL</span>
+                        <span class="fecha" data-i18n="curriculum.edu2.fecha">2023</span>
+                        <p data-i18n="curriculum.edu2.descripcion">Especialización en ciberseguridad, gestión de riesgos
+                            y protección de datos.</p>
                         <div class="conectori">
                             <div class="circuloi"></div>
                         </div>
                     </div>
                     <div class="item izq">
-                        <h4>Bachiller Académico</h4>
-                        <span class="casa">Colegio Distrital Olaya</span>
-                        <span class="fecha">2007</span>
-                        <p>Formación académica general con énfasis en ciencias y matemáticas.</p>
+                        <h4 data-i18n="curriculum.edu3.titulo">Bachiller Académico</h4>
+                        <span class="casa" data-i18n="curriculum.edu3.institucion">Colegio Distrital Olaya</span>
+                        <span class="fecha" data-i18n="curriculum.edu3.fecha">2007</span>
+                        <p data-i18n="curriculum.edu3.descripcion">Formación académica general con énfasis en ciencias y
+                            matemáticas.</p>
                         <div class="conectori">
                             <div class="circuloi"></div>
                         </div>
@@ -248,38 +319,48 @@
                 <div class="col derecha">
                     <h3 data-i18n="curriculum.experiencia">Experiencia Profesional</h3>
                     <div class="item der">
-                        <h4>Desarrollador de Software</h4>
-                        <span class="casa">Hypersoft</span>
-                        <span class="fecha">22/06/2022 - Actualmente (Barranquilla, Colombia)</span>
-                        <p>Diseño y desarrollo de interfaces dinámicas, implementación de backend en Java y gestión de
+                        <h4 data-i18n="curriculum.exp1.titulo">Desarrollador de Software</h4>
+                        <span class="casa" data-i18n="curriculum.exp1.empresa">Hypersoft</span>
+                        <span class="fecha" data-i18n="curriculum.exp1.fecha">22/06/2022 - Actualmente (Barranquilla,
+                            Colombia)</span>
+                        <p data-i18n="curriculum.exp1.descripcion">Diseño y desarrollo de interfaces dinámicas,
+                            implementación de backend en Java y gestión de
                             bases de datos SQL.</p>
-                        <p><strong>Logros:</strong> Mejoré la eficiencia del sistema en un 20% y reduje errores en bases
-                            de datos en un 15%.</p>
+                        <p><strong data-i18n="curriculum.exp1.logros">Logros:</strong> <span
+                                data-i18n="curriculum.exp1.logrosTexto">Mejoré la eficiencia del sistema en un 20% y
+                                reduje errores en bases
+                                de datos en un 15%.</span></p>
                         <div class="conectord">
                             <div class="circulod"></div>
                         </div>
                     </div>
 
                     <div class="item der">
-                        <h4>Administrador Comercial</h4>
-                        <span class="casa">Mega Tiendas</span>
-                        <span class="fecha">10/11/2021 - 30/12/2021 (Cartagena, Colombia)</span>
-                        <p>Gestión de ventas, abastecimiento y control de inventarios.</p>
-                        <p><strong>Logros:</strong> Reduje productos agotados en un 10% mediante estrategias de control
-                            de inventarios.</p>
+                        <h4 data-i18n="curriculum.exp2.titulo">Jefe Comercial</h4>
+                        <span class="casa" data-i18n="curriculum.exp2.empresa">Hypersoft</span>
+                        <span class="fecha" data-i18n="curriculum.exp2.fecha">01/03/2021 - 22/06/2022 (Barranquilla,
+                            Colombia)</span>
+                        <p data-i18n="curriculum.exp2.descripcion">Liderazgo de equipos comerciales, gestión de clientes
+                            y estrategias de ventas.</p>
+                        <p><strong data-i18n="curriculum.exp2.logros">Logros:</strong> <span
+                                data-i18n="curriculum.exp2.logrosTexto">Incrementé las ventas en un 12% y mejoré la
+                                retención de clientes en un 18%.</span></p>
                         <div class="conectord">
                             <div class="circulod"></div>
                         </div>
                     </div>
 
                     <div class="item der">
-                        <h4>Líder de Ventas PGC</h4>
-                        <span class="casa">Almacenes Éxito</span>
-                        <span class="fecha">16/07/2011 - 04/03/2021 (Barranquilla, Colombia)</span>
-                        <p>Coordinación de estrategias de ventas y abastecimiento para garantizar la eficiencia
-                            operativa.</p>
-                        <p><strong>Logros:</strong> Incrementé la participación en el mercado en un 12% con estrategias
-                            de promoción y ventas.</p>
+                        <h4 data-i18n="curriculum.exp3.titulo">Administrador Comercial</h4>
+                        <span class="casa" data-i18n="curriculum.exp3.empresa">Mega Tiendas</span>
+                        <span class="fecha" data-i18n="curriculum.exp3.fecha">10/11/2021 - 30/12/2021 (Cartagena,
+                            Colombia)</span>
+                        <p data-i18n="curriculum.exp3.descripcion">Gestión de ventas, abastecimiento y control de
+                            inventarios.</p>
+                        <p><strong data-i18n="curriculum.exp3.logros">Logros:</strong> <span
+                                data-i18n="curriculum.exp3.logrosTexto">Reduje productos agotados en un 10% mediante
+                                estrategias de control
+                                de inventarios.</span></p>
                         <div class="conectord">
                             <div class="circulod"></div>
                         </div>
@@ -294,38 +375,61 @@
             <h2>PORTFOLIO</h2>
             <div class="galeria">
                 <div class="proyecto">
-                    <img src="img/proyecto1.jpg" alt="Proyecto 1">
+                    <img src="img/proyecto1.png" alt="CRUD Spring Boot + Angular - Sistema de Gestión de Empleados"
+                        loading="lazy">
                     <div class="overlay">
-                        <h3 data-i18n="portfolio.proj1.title">Gestor de Inventarios</h3>
-                        <p data-i18n="portfolio.proj1.desc">Aplicación web en React y Node.js</p>
-                        <a href="https://github.com/tuusuario/gestor-inventarios" target="_blank" data-i18n="portfolio.proj1.link">Ver Proyecto</a>
+                        <h3>CRUD Full Stack</h3>
+                        <p>Spring Boot • Angular • MySQL</p>
+                        <div class="tech-badges">
+                            <span class="badge">Java</span>
+                            <span class="badge">Angular</span>
+                            <span class="badge">MySQL</span>
+                        </div>
+                        <a href="https://github.com/LeonardoDiazO/crudSpring-Angular-backend" target="_blank"
+                            rel="noopener">Ver Proyecto</a>
                     </div>
                 </div>
 
                 <div class="proyecto">
-                    <img src="img/proyecto2.jpg" alt="Proyecto 2">
+                    <img src="img/proyecto2.png" alt="PDF Merger App - Herramienta para Unir PDFs" loading="lazy">
                     <div class="overlay">
-                        <h3 data-i18n="portfolio.proj2.title">Sistema de Reservas</h3>
-                        <p data-i18n="portfolio.proj2.desc">Desarrollado en Java y MySQL</p>
-                        <a href="https://github.com/tuusuario/sistema-reservas" target="_blank" data-i18n="portfolio.proj2.link">Ver Proyecto</a>
+                        <h3>PDF Merger Tool</h3>
+                        <p>Python • Flask • HTML/CSS</p>
+                        <div class="tech-badges">
+                            <span class="badge">Python</span>
+                            <span class="badge">Flask</span>
+                        </div>
+                        <a href="https://github.com/LeonardoDiazO/pdfApp" target="_blank" rel="noopener">Ver
+                            Proyecto</a>
                     </div>
                 </div>
 
                 <div class="proyecto">
-                    <img src="img/proyecto3.jpg" alt="Proyecto 3">
+                    <img src="img/proyecto3.png" alt="API REST .NET Core desplegada en Azure" loading="lazy">
                     <div class="overlay">
-                        <h3 data-i18n="portfolio.proj3.title">API de Autenticación</h3>
-                        <p data-i18n="portfolio.proj3.desc">Node.js, Express y JWT</p>
-                        <a href="https://github.com/tuusuario/api-autenticacion" target="_blank" data-i18n="portfolio.proj3.link">Ver Proyecto</a>
+                        <h3>API REST .NET en Azure</h3>
+                        <p>.NET Core • SQL Server • Azure</p>
+                        <div class="tech-badges">
+                            <span class="badge">.NET</span>
+                            <span class="badge">Azure</span>
+                            <span class="badge">SQL Server</span>
+                        </div>
+                        <a href="https://github.com/LeonardoDiazO/ApiPrueba.Net" target="_blank" rel="noopener">Ver
+                            Proyecto</a>
                     </div>
                 </div>
 
                 <div class="proyecto">
-                    <img src="img/proyecto4.jpg" alt="Proyecto 4">
+                    <img src="img/proyecto4.png" alt="Flutter Mobile App - Aplicación Móvil" loading="lazy">
                     <div class="overlay">
-                        <h3 data-i18n="portfolio.proj4.title">Dashboard de Ventas</h3>
-                        <p data-i18n="portfolio.proj4.desc">Vue.js y Firebase</p>
-                        <a href="https://github.com/tuusuario/dashboard-ventas" target="_blank" data-i18n="portfolio.proj4.link">Ver Proyecto</a>
+                        <h3>Flutter Mobile App</h3>
+                        <p>Flutter • Dart • Material Design</p>
+                        <div class="tech-badges">
+                            <span class="badge">Flutter</span>
+                            <span class="badge">Dart</span>
+                        </div>
+                        <a href="https://github.com/LeonardoDiazO/FirstAppflutterDocumentation" target="_blank"
+                            rel="noopener">Ver Proyecto</a>
                     </div>
                 </div>
             </div>
@@ -339,13 +443,19 @@
             <div class="fila">
                 <div class="col">
                     <form id="contact-form">
-                        <input type="text" id="from_name" placeholder="Tú Nombre" data-i18n="contacto.formulario.nombre" required>
-                        <input type="text" id="from_phone" placeholder="Número telefónico" data-i18n="contacto.formulario.telefono" required>
-                        <input type="email" id="from_email" placeholder="Dirección de correo" data-i18n="contacto.formulario.correo" required>
-                        <input type="text" id="subject" placeholder="Tema" data-i18n="contacto.formulario.tema" required>
-                        <textarea id="message" cols="30" rows="10" placeholder="Mensaje" data-i18n="contacto.formulario.mensaje" required></textarea>
+                        <input type="text" id="from_name" placeholder="Tú Nombre" data-i18n="contacto.formulario.nombre"
+                            required>
+                        <input type="text" id="from_phone" placeholder="Número telefónico"
+                            data-i18n="contacto.formulario.telefono" required>
+                        <input type="email" id="from_email" placeholder="Dirección de correo"
+                            data-i18n="contacto.formulario.correo" required>
+                        <input type="text" id="subject" placeholder="Tema" data-i18n="contacto.formulario.tema"
+                            required>
+                        <textarea id="message" cols="30" rows="10" placeholder="Mensaje"
+                            data-i18n="contacto.formulario.mensaje" required></textarea>
                         <button type="button" id="send-whatsapp">
-                            <span data-i18n="contacto.formulario.botonEnviar">Enviar Mensaje</span> <i class="fa-solid fa-paper-plane"></i>
+                            <span data-i18n="contacto.formulario.botonEnviar">Enviar Mensaje</span> <i
+                                class="fa-solid fa-paper-plane"></i>
                             <span class="overlay"></span>
                         </button>
                     </form>
@@ -374,6 +484,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <!-- Main scripts -->
     <script src="script/scripst.js"></script>
-    </body>
+</body>
 
 </html>

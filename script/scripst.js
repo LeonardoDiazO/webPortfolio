@@ -29,7 +29,7 @@ function efectoHabilidades() {
 
     if (distancia_skills >= 300) {
         let progresos = document.querySelectorAll(".skills .barra-skill .progreso");
-        
+
         progresos.forEach(progreso => {
             // Asegúrate de que solo se anime una vez
             if (!progreso.dataset.animated) {
@@ -140,6 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // Esta función se mantiene global y se llama en el evento 'scroll'
 window.onscroll = function () {
     efectoHabilidades();
+
+    // Update scroll progress bar
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.querySelector('.scroll-progress');
+    if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+    }
 };
 
 
@@ -172,7 +181,7 @@ function changeLanguage() {
     });
     if (missing.length) {
         // Only warn in dev; this helps find missing keys
-        console.warn('Missing translations for keys:', Array.from(new Set(missing)).slice(0,20));
+        console.warn('Missing translations for keys:', Array.from(new Set(missing)).slice(0, 20));
     }
 
     // Translate placeholders for form controls specifically
@@ -213,3 +222,41 @@ function changeLanguage() {
         }
     }
 }
+
+// --- Configurar valores predeterminados: Tema Claro e Inglés ---
+// Ejecutar al cargar la página para establecer defaults
+(function initializeDefaults() {
+    // Default theme: light (unless user has saved a preference)
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === null) {
+        // First time visitor - set light theme as default
+        document.body.classList.add('light-theme');
+        const switchElement = document.getElementById('switch');
+        if (switchElement) switchElement.checked = true;
+        localStorage.setItem('theme', 'light');
+    } else if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        const switchElement = document.getElementById('switch');
+        if (switchElement) switchElement.checked = true;
+    }
+
+    // Default language: English (unless user has saved a preference)
+    const savedLang = localStorage.getItem('language');
+    if (savedLang === null) {
+        // First time visitor - set English as default
+        localStorage.setItem('language', 'en');
+        if (typeof changeLanguage === 'function') {
+            changeLanguage('en');
+        }
+    } else {
+        if (typeof changeLanguage === 'function') {
+            changeLanguage(savedLang);
+        }
+    }
+
+    // Update language selector to match current language
+    const langSelector = document.getElementById('language-selector');
+    if (langSelector) {
+        langSelector.value = localStorage.getItem('language') || 'en';
+    }
+})();
