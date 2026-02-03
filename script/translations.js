@@ -82,8 +82,8 @@ const translations = {
             },
             exp2: {
                 titulo: "Jefe Comercial",
-                empresa: "Hypersoft",
-                fecha: "01/03/2021 - 22/06/2022 (Barranquilla, Colombia)",
+                empresa: "Almacenes Éxito",
+                fecha: "01/06/2011 - 22/06/2022 (Barranquilla, Colombia)",
                 descripcion: "Liderazgo de equipos comerciales, gestión de clientes y estrategias de ventas.",
                 logros: "Logros:",
                 logrosTexto: "Incrementé las ventas en un 12% y mejoré la retención de clientes en un 18%."
