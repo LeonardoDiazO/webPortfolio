@@ -18,17 +18,18 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://leonardodiaz.dev/">
-    <meta property="og:title" content="Leonardo Díaz - Desarrollador Full Stack">
+    <meta property="og:title" content="Leonardo Díaz | Ingeniero de Sistemas & Full Stack Developer">
     <meta property="og:description"
-        content="Portafolio profesional de Leonardo Díaz, especializado en desarrollo web moderno con Angular, Node.js y Java.">
-    <meta property="og:image" content="https://leonardodiaz.dev/img/perfil.png">
+        content="Explora el portafolio de Leonardo Díaz: Soluciones escalables en Angular, Node.js y Java con un enfoque en la eficiencia y la UX.">
+    <meta property="og:image" content="https://leonardodiaz.dev/img/og-preview.png">
+    <!-- I will assume this exists or user can add it later, using a more standard name -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://leonardodiaz.dev/">
-    <meta property="twitter:title" content="Leonardo Díaz - Desarrollador Full Stack">
-    <meta property="twitter:description" content="Portafolio profesional de Leonardo Díaz">
-    <meta property="twitter:image" content="https://leonardodiaz.dev/img/perfil.png">
+    <meta property="twitter:title" content="Leonardo Díaz | Ingeniero de Sistemas & Full Stack Developer">
+    <meta property="twitter:description" content="Soluciones tecnológicas robustas y escalables.">
+    <meta property="twitter:image" content="https://leonardodiaz.dev/img/og-preview.png">
 
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.png" type="image/png">
@@ -70,26 +71,22 @@
                     <li><a href="#skills" data-i18n="menu.skills" onclick="seleccionar()">SKILLS</a></li>
                     <li><a href="#curriculum" data-i18n="menu.curriculum" onclick="seleccionar()">CURRICULUM</a></li>
                     <li><a href="#portfolio" data-i18n="menu.portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
-                    <li><a href="#contacto" data-i18n="menu.contacto" onclick="seleccionar()">CONTACTO</a></li>
-                    <li>
-                        <div style="display:flex;align-items:center;gap:8px;">
-                            <label for="theme-select" style="font-size:13px;">TEMA</label>
-                            <select id="theme-select" style="border-radius: 10px;" aria-label="Seleccionar tema">
-                                <option value="dark">Oscuro</option>
-                                <option value="light">Claro</option>
-                            </select>
-                            <label for="language-selector" style="font-size:13px;margin-left:8px;">IDIOMA</label>
-                            <select id="language-selector" aria-label="Seleccionar idioma" style="border-radius: 10px;"
-                                onchange="changeLanguage()">
-                                <option value="es">ES</option>
-                                <option value="en">EN</option>
-                            </select>
-                        </div>
-                    </li>
                 </ul>
             </nav>
+            <div class="controls-header">
+                <!-- Theme Toggle -->
+                <div class="toggle-container" id="theme-toggle" role="radiogroup" aria-label="Seleccionar tema">
+                    <button class="toggle-btn" data-theme="dark" aria-checked="true" role="radio">Oscuro</button>
+                    <button class="toggle-btn" data-theme="light" aria-checked="false" role="radio">Claro</button>
+                </div>
+                <!-- Language Toggle -->
+                <div class="toggle-container" id="lang-toggle" role="radiogroup" aria-label="Seleccionar idioma">
+                    <button class="toggle-btn" data-lang="es" aria-checked="true" role="radio">ES</button>
+                    <button class="toggle-btn" data-lang="en" aria-checked="false" role="radio">EN</button>
+                </div>
+            </div>
             <div class="nav-responsive" onclick="mostrarOcultarMenu()" aria-label="Abrir menú de navegación"
-                role="button" tabindex="0">
+                role="button" tabindex="0" aria-expanded="false" aria-controls="nav">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </header>
@@ -259,19 +256,19 @@
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">3+</div>
-                    <div class="stat-label">Años de Experiencia</div>
+                    <div class="stat-label" data-i18n="stats.experience">Años de Experiencia</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">20%</div>
-                    <div class="stat-label">Mejora de Eficiencia</div>
+                    <div class="stat-label" data-i18n="stats.efficiency">Mejora de Eficiencia</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">15%</div>
-                    <div class="stat-label">Reducción de Errores</div>
+                    <div class="stat-label" data-i18n="stats.errors">Reducción de Errores</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">12%</div>
-                    <div class="stat-label">Incremento en Ventas</div>
+                    <div class="stat-label" data-i18n="stats.sales">Incremento en Ventas</div>
                 </div>
             </div>
         </div>
@@ -350,7 +347,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
@@ -423,32 +420,6 @@
     </section>
 
 
-    <section id="contacto" class="contacto" data-aos="fade-up">
-        <div class="contenido-seccion">
-            <h2 data-i18n="contacto.titulo">CONTACTO</h2>
-            <div class="fila">
-                <div class="col">
-                    <form id="contact-form">
-                        <input type="text" id="from_name" placeholder="Tú Nombre" data-i18n="contacto.formulario.nombre"
-                            required>
-                        <input type="text" id="from_phone" placeholder="Número telefónico"
-                            data-i18n="contacto.formulario.telefono" required>
-                        <input type="email" id="from_email" placeholder="Dirección de correo"
-                            data-i18n="contacto.formulario.correo" required>
-                        <input type="text" id="subject" placeholder="Tema" data-i18n="contacto.formulario.tema"
-                            required>
-                        <textarea id="message" cols="30" rows="10" placeholder="Mensaje"
-                            data-i18n="contacto.formulario.mensaje" required></textarea>
-                        <button type="button" id="send-whatsapp">
-                            <span data-i18n="contacto.formulario.botonEnviar">Enviar Mensaje</span> <i
-                                class="fa-solid fa-paper-plane"></i>
-                            <span class="overlay"></span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <footer>
@@ -456,20 +427,30 @@
             <i class="fa-solid fa-angles-up"></i>
         </a>
         <div class="redes">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-skype"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-solid fa-rss"></i></a>
+            <a href="https://www.facebook.com/Leonardo.Diaz.O/" target="_blank" rel="noopener noreferrer"
+                aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/leonardo.diaz.o/" target="_blank" rel="noopener noreferrer"
+                aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/leonardo-diaz-o/" target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/LeonardoDiazO" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
         </div>
+        <p class="copyright" data-i18n="footer.copyright">© 2024 Leonardo Díaz. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" id="whatsapp-float" class="whatsapp-float" aria-label="Contactar por WhatsApp" target="_blank"
+        rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- Translations (defines window.t) -->
     <script src="script/translations.js"></script>
     <!-- AOS JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <!-- Main scripts -->
-    <script src="script/scripst.js"></script>
+    <script src="script/scripts.js"></script>
 </body>
 
 </html>

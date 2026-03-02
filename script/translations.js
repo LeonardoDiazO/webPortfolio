@@ -54,6 +54,7 @@ const translations = {
             titulo: "Curriculum",
             educacion: "Educación",
             experiencia: "Experiencia de trabajo",
+            certificado: "Certificado",
             edu1: {
                 titulo: "Ingeniería de Sistemas y Computación",
                 institucion: "Universidad CUL",
@@ -128,22 +129,18 @@ const translations = {
                 link: "Ver Proyecto"
             }
         },
-        contacto: {
-            titulo: "CONTACTO",
-            formulario: {
-                nombre: "Tú Nombre",
-                telefono: "Número telefónico",
-                correo: "Dirección de correo",
-                tema: "Tema",
-                mensaje: "Mensaje",
-                botonEnviar: "Enviar Mensaje",
-            },
-            ubicacion: "Nicaragua 159, San Rafael Mza",
-            llamar: "Llámanos",
-            email: "Email",
+        stats: {
+            experience: "Años de Experiencia",
+            efficiency: "Mejora de Eficiencia",
+            errors: "Reducción de Errores",
+            sales: "Incremento en Ventas",
+        },
+        whatsapp: {
+            message: "Hola Leonardo, me gustaría contactarte desde tu portfolio."
         },
         footer: {
             subir: "Subir",
+            copyright: "© 2024 Leonardo Díaz. Todos los derechos reservados."
         }
     },
 
@@ -200,6 +197,7 @@ const translations = {
             titulo: "Resume",
             educacion: "Education",
             experiencia: "Work Experience",
+            certificado: "Certified",
             edu1: {
                 titulo: "Systems and Computer Engineering",
                 institucion: "CUL University",
@@ -274,22 +272,18 @@ const translations = {
                 link: "View Project"
             }
         },
-        contacto: {
-            titulo: "CONTACT",
-            formulario: {
-                nombre: "Your Name",
-                telefono: "Phone Number",
-                correo: "Email Address",
-                tema: "Subject",
-                mensaje: "Message",
-                botonEnviar: "Send Message",
-            },
-            ubicacion: "Nicaragua 159, San Rafael Mza",
-            llamar: "Call Us",
-            email: "Email",
+        stats: {
+            experience: "Years of Experience",
+            efficiency: "Efficiency Improvement",
+            errors: "Error Reduction",
+            sales: "Sales Increase",
+        },
+        whatsapp: {
+            message: "Hello Leonardo, I would like to contact you from your portfolio."
         },
         footer: {
             subir: "Scroll Up",
+            copyright: "© 2024 Leonardo Díaz. All rights reserved."
         }
     }
 
