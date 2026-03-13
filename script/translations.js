@@ -18,11 +18,14 @@ const translations = {
             titulo: "Sobre Mí",
             descripcion: "Hola, soy Leonardo Diaz. Soy Ingeniero de Sistemas con más de 3 años de experiencia en desarrollo de software, especializado en tecnologías modernas como Angular, Node.js y Java. Me apasiona crear soluciones tecnológicas eficientes, escalables y centradas en el usuario. Además, mi experiencia previa como líder de ventas en productos de gran consumo me ha brindado habilidades sólidas en gestión de equipos, enfoque al cliente y cumplimiento de objetivos estratégicos.",
             datosPersonales: {
+                titulo: "Datos Personales",
                 telefono: "Teléfono",
                 email: "Email",
+                cargoLabel: "Cargo",
                 cargo: "Desarrollador de software",
             },
             intereses: {
+                titulo: "Intereses",
                 desarrollo: "DESARROLLO WEB",
                 ia: "INTELIGENCIA ARTIFICIAL",
                 ciberseguridad: "CIBERSEGURIDAD",
@@ -140,7 +143,7 @@ const translations = {
         },
         footer: {
             subir: "Subir",
-            copyright: "© 2024 Leonardo Díaz. Todos los derechos reservados."
+            copyright: "© 2026 Leonardo Díaz. Todos los derechos reservados."
         }
     },
 
@@ -161,11 +164,14 @@ const translations = {
             titulo: "About Me",
             descripcion: "Hi, I'm Leonardo Diaz. I'm a Systems Engineer with over 3 years of experience in software development, specializing in modern technologies such as Angular, Node.js and Java. I enjoy building efficient, scalable, and user-centered solutions. My prior experience as a commercial team leader helped me develop strong team management and customer-focused skills.",
             datosPersonales: {
+                titulo: "Personal Data",
                 telefono: "Phone",
                 email: "Email",
-                cargo: "Engineer of Systems",
+                cargoLabel: "Position",
+                cargo: "Software Developer",
             },
             intereses: {
+                titulo: "Interests",
                 desarrollo: "WEB DEVELOPMENT",
                 ia: "ARTIFICIAL INTELLIGENCE",
                 ciberseguridad: "CYBERSECURITY",
@@ -226,7 +232,7 @@ const translations = {
             },
             exp2: {
                 titulo: "Commercial Manager",
-                empresa: "Hypersoft",
+                empresa: "Almacenes Éxito",
                 fecha: "03/01/2021 - 06/22/2022 (Barranquilla, Colombia)",
                 descripcion: "Leadership of commercial teams, client management and sales strategies.",
                 logros: "Achievements:",
@@ -283,7 +289,7 @@ const translations = {
         },
         footer: {
             subir: "Scroll Up",
-            copyright: "© 2024 Leonardo Díaz. All rights reserved."
+            copyright: "© 2026 Leonardo Díaz. All rights reserved."
         }
     }
 

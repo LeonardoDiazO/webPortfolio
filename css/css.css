@@ -55,6 +55,39 @@ html {
     scroll-behavior: smooth;
 }
 
+/* SKIP TO CONTENT — visible solo al recibir foco (teclado / screen readers) */
+.skip-to-content {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    z-index: 9999;
+    transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* SCROLL PROGRESS BAR */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    z-index: 9998;
+    transition: width 0.1s linear;
+}
+
 /* Global Background and Text */
 body {
     background: var(--fondo-principal);
@@ -111,23 +144,6 @@ button:hover {
     transform: scale(1.08);
 }
 
-/* NAV BAR */
-.contenedor-header {
-    height: 80px;
-    /* Ajusta este valor al alto real de tu header */
-    width: 100%;
-    /* Asegura que ocupe todo el ancho */
-    position: fixed;
-    /* Si quieres que el header se quede fijo al hacer scroll */
-    top: 0;
-    /* Lo pega arriba */
-    left: 0;
-    z-index: 1000;
-    /* Asegura que esté por encima de otros elementos */
-    background-color: var(--fondo-principal);
-    /* O el color de fondo de tu header */
-    /* ... otros estilos que ya tengas ... */
-}
 
 /* PORTAFOLIO */
 .portfolio .proyecto img {
@@ -208,18 +224,6 @@ footer .arriba {
     /* Smooth theme transition */
 }
 
-/* BOTÓN WHATSAPP */
-.whatsapp-chat {
-    /* Keep WhatsApp brand green, but soften shadow to match site */
-    background: linear-gradient(135deg, #25D366, #10B981);
-    box-shadow: var(--sombra-accent);
-    transition: all 0.4s ease;
-}
-
-.whatsapp-chat:hover {
-    transform: scale(1.06);
-    box-shadow: 0 8px 20px rgba(255, 45, 149, 0.08);
-}
 
 /* SOMBRAS EN SECCIONES */
 .inicio .contenido-banner,
@@ -262,16 +266,13 @@ footer .arriba {
 /* MENU */
 .contenedor-header {
     background: rgba(26, 26, 26, 0.85);
-    /* Semi-transparent dark background */
     backdrop-filter: blur(10px);
-    /* Glassmorphism blur effect */
     -webkit-backdrop-filter: blur(10px);
-    /* Safari support */
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 1000;
     transition: background 0.3s ease;
 }
 
@@ -294,11 +295,6 @@ body.light-theme .contenedor-header {
     padding: 20px 0;
 }
 
-.contenedor-header header .controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
 
 .contenedor-header header .logo a {
     font-family: 'Righteous';
@@ -315,11 +311,10 @@ body.light-theme .contenedor-header {
 }
 
 .contenedor-header header nav ul li a {
-    text-align: none;
     color: var(--texto-principal);
     margin: 0 15px;
     padding: 6px 8px;
-    transition: .25s;
+    transition: color 0.25s ease;
     text-decoration: none;
 }
 
@@ -396,18 +391,16 @@ body.light-theme .contenedor-header {
 
 .inicio .contenido-banner .redes a {
     color: var(--texto-principal);
-    /* Use primary text color for theme consistency */
     display: inline-block;
     text-decoration: none;
     border: 1px solid var(--texto-principal);
-    /* Border color adjusts to theme */
-    border-radius: 100%;
+    border-radius: 50%;
     width: 42px;
     height: 42px;
     line-height: 42px;
     margin: 40px 5px;
     font-size: 20px;
-    transition: .3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .inicio .contenido-banner .redes a:hover {
@@ -438,7 +431,7 @@ body.light-theme .contenedor-header {
 }
 
 .sobremi .contenido-seccion p {
-    font: 18px;
+    font-size: 18px;
     line-height: 22px;
     margin-bottom: 20px;
     color: var(--texto-secundario);
@@ -496,14 +489,13 @@ body.light-theme .contenedor-header {
     width: 120px;
     height: 100px;
     background-color: var(--fondo-secundario);
-    /* Uses secondary background for theme consistency */
     border-radius: 10px;
     margin: 0 15px 15px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: .3s;
+    transition: background-color 0.3s ease;
     text-align: center;
     font-size: 12px;
 }
@@ -672,156 +664,6 @@ footer .redes a {
     transition: border-color 0.4s ease;
 }
 
-/* These classes will be dynamically added by javascript */
-.skills .skill .javascript {
-    width: 0%;
-    animation: 2s javascript forwards;
-}
-
-@keyframes javascript {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 65%;
-    }
-}
-
-.skills .skill .htmlcss {
-    width: 0%;
-    animation: 2s htmlcss forwards;
-}
-
-@keyframes htmlcss {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 80%;
-    }
-}
-
-.skills .skill .photoshop {
-    width: 0%;
-    animation: 2s photoshop forwards;
-}
-
-@keyframes photoshop {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 60%;
-    }
-}
-
-.skills .skill .wordpress {
-    width: 0%;
-    animation: 2s wordpress forwards;
-}
-
-@keyframes wordpress {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 80%;
-    }
-}
-
-.skills .skill .drupal {
-    width: 0%;
-    animation: 2s drupal forwards;
-}
-
-@keyframes drupal {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 50%;
-    }
-}
-
-.skills .skill .comunicacion {
-    width: 0%;
-    animation: 2s comunicacion forwards;
-}
-
-@keyframes comunicacion {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 80%;
-    }
-}
-
-.skills .skill .trabajo {
-    width: 0%;
-    animation: 2s trabajo forwards;
-}
-
-@keyframes trabajo {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 70%;
-    }
-}
-
-.skills .skill .creatividad {
-    width: 0%;
-    animation: 2s creatividad forwards;
-}
-
-@keyframes creatividad {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 80%;
-    }
-}
-
-.skills .skill .dedicacion {
-    width: 0%;
-    animation: 2s dedicacion forwards;
-}
-
-@keyframes dedicacion {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 65%;
-    }
-}
-
-.skills .skill .proyect {
-    width: 0%;
-    animation: 2s proyect forwards;
-}
-
-@keyframes proyect {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 60%;
-    }
-}
 
 /* SECCION CURRICULUM */
 .curriculum {
@@ -1050,7 +892,7 @@ footer .redes a {
 /* Espaciado y visibilidad del título */
 .portfolio .overlay h3 {
     margin-bottom: 15px;
-    transition: 0.5s;
+    transition: transform 0.5s ease;
 }
 
 .portfolio .overlay a {
@@ -1136,121 +978,6 @@ footer .redes a {
     font-weight: 500;
 }
 
-/* SECCION CONTACTO */
-.contacto {
-    background-image: url(img/contact_bg.png);
-    /* Consider a different background for light theme */
-    background-color: var(--fondo-principal);
-    color: var(--texto-principal);
-    padding: 50px 0;
-    transition: background-color 0.4s ease, color 0.4s ease;
-    /* Smooth theme transition */
-}
-
-.contacto .contenido-seccion {
-    max-width: 1100px;
-    margin: auto;
-}
-
-.contacto h2 {
-    font-size: 48px;
-    font-family: 'Righteous';
-    text-align: center;
-    padding: 20px 0;
-}
-
-.contacto .fila {
-    display: flex;
-}
-
-.contacto .col {
-    width: 50%;
-    padding: 10px;
-    position: relative;
-}
-
-.contacto .col input,
-.contacto .col textarea {
-    display: block;
-    width: 100%;
-    padding: 18px;
-    border: 1px solid var(--borde);
-    margin-bottom: 20px;
-    background-color: var(--fondo-secundario);
-    /* Uses secondary background for theme consistency */
-    color: var(--texto-principal);
-    /* Text color adjusts to theme */
-    font-size: 18px;
-    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.2s ease;
-    /* Smooth theme transition */
-}
-
-.contacto button {
-    cursor: pointer;
-    background-color: transparent;
-    border: 2px solid var(--texto-principal);
-    /* Border color adjusts to theme */
-    width: fit-content;
-    display: block;
-    margin: 20px auto;
-    padding: 10px 22px;
-    font-size: 16px;
-    color: var(--texto-principal);
-    /* Text color adjusts to theme */
-    position: relative;
-    z-index: 10;
-    transition: border-color 0.4s ease, color 0.4s ease;
-    /* Smooth theme transition */
-}
-
-.contacto button .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: var(--accent-hover);
-    /* Uses accent hover color from theme */
-    z-index: -1;
-    transition: 1s;
-}
-
-.contacto button:hover .overlay {
-    width: 100%;
-}
-
-.contacto .col img {
-    width: 100%;
-}
-
-.contacto .col .info {
-    position: absolute;
-    top: 40%;
-    background-color: var(--fondo-secundario);
-    /* Uses secondary background for theme consistency */
-    padding: 20px;
-    max-width: 350px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: background-color 0.4s ease;
-    /* Smooth theme transition */
-}
-
-.contacto .col .info ul {
-    list-style: none;
-}
-
-.contacto .col .info ul li {
-    margin-bottom: 20px;
-}
-
-.contacto .col .info ul li i {
-    color: var(--accent);
-    display: inline-block;
-    margin-right: 20px;
-    transition: color 0.4s ease;
-    /* Smooth theme transition */
-}
 
 footer {
     background-color: var(--fondo-secundario);
@@ -1278,17 +1005,16 @@ footer .redes {
 
 footer .redes a {
     color: var(--texto-principal);
-    /* Text color adjusts to theme */
     display: inline-block;
     text-decoration: none;
     border: 1px solid var(--accent);
-    border-radius: 100%;
+    border-radius: 50%;
     width: 42px;
     height: 42px;
     line-height: 42px;
     margin: 40px 5px;
     font-size: 20px;
-    transition: .3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer .redes a:hover {

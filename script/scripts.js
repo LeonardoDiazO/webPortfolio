@@ -1,6 +1,5 @@
 /**
  * Leonardo Díaz - Portfolio Scripts
- * Consolidated and improved for better UX/UI
  */
 
 let menuVisible = false;
@@ -29,22 +28,24 @@ function seleccionar() {
     menuVisible = false;
 }
 
-// --- Skill Animations ---
-function efectoHabilidades() {
+// --- Skill Animations via IntersectionObserver ---
+function initSkillAnimations() {
     const skillsSection = document.getElementById("skills");
     if (!skillsSection) return;
 
-    const distancia_skills = window.innerHeight - skillsSection.getBoundingClientRect().top;
-
-    if (distancia_skills >= 300) {
-        document.querySelectorAll(".skills .barra-skill .progreso").forEach(progreso => {
-            if (!progreso.dataset.animated) {
-                const percent = progreso.getAttribute("data-percent") || 0;
-                progreso.style.width = percent + "%";
-                progreso.dataset.animated = "true";
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.querySelectorAll(".skills .barra-skill .progreso").forEach(progreso => {
+                    const percent = progreso.getAttribute("data-percent") || 0;
+                    progreso.style.width = percent + "%";
+                });
+                observer.disconnect();
             }
         });
-    }
+    }, { threshold: 0.3 });
+
+    observer.observe(skillsSection);
 }
 
 // --- Theme & Language Toggles ---
@@ -55,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('light-theme', theme === 'light');
         localStorage.setItem('theme', theme);
 
-        // Update toggle buttons
         if (themeToggle) {
             themeToggle.querySelectorAll('.toggle-btn').forEach(btn => {
                 const isActive = btn.dataset.theme === theme;
@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateLangUI = (lang) => {
         localStorage.setItem('lang', lang);
 
-        // Update toggle buttons
         if (langToggle) {
             langToggle.querySelectorAll('.toggle-btn').forEach(btn => {
                 const isActive = btn.dataset.lang === lang;
@@ -118,30 +117,32 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const phoneNumber = "573504974914";
             const currentLang = localStorage.getItem('lang') || 'es';
-            const msgKey = "whatsapp.message";
-            const message = encodeURIComponent(window.t ? window.t(currentLang, msgKey) : "Hola Leonardo, me gustaría contactarte desde tu portfolio.");
+            const message = encodeURIComponent(window.t ? window.t(currentLang, "whatsapp.message") : "Hola Leonardo, me gustaría contactarte desde tu portfolio.");
             window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
         });
     }
 
-    efectoHabilidades();
-});
+    // --- Skill animations ---
+    initSkillAnimations();
 
-// --- Scroll Handling ---
-window.addEventListener('scroll', () => {
-    efectoHabilidades();
-
-    // Scroll progress bar
-    const winScroll = document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
+    // --- Scroll progress bar (cached element + rAF) ---
     const progressBar = document.querySelector('.scroll-progress');
     if (progressBar) {
-        progressBar.style.width = scrolled + '%';
+        let rafPending = false;
+        window.addEventListener('scroll', () => {
+            if (rafPending) return;
+            rafPending = true;
+            requestAnimationFrame(() => {
+                const winScroll = document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                progressBar.style.width = ((winScroll / height) * 100) + '%';
+                rafPending = false;
+            });
+        }, { passive: true });
     }
 });
 
-// Global function (called from index.html scripts or other places)
+// Global function (called from HTML or other scripts)
 function changeLanguage() {
     const selectedLang = localStorage.getItem('lang') || 'es';
 
@@ -153,7 +154,6 @@ function changeLanguage() {
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                     el.placeholder = val;
                 } else {
-                    // Preservar iconos si existen
                     const icon = el.querySelector('i');
                     el.textContent = val;
                     if (icon) el.appendChild(icon);

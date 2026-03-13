@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
@@ -41,8 +40,8 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- AOS (Animate On Scroll) CSS -->
@@ -54,7 +53,7 @@
 
 <body>
     <!-- Skip Navigation for Accessibility -->
-    <a href="#inicio" class="skip-to-content"></a>
+    <a href="#inicio" class="skip-to-content">Saltar al contenido principal</a>
 
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress"></div>
@@ -100,11 +99,9 @@
             <h1 data-i18n="inicio.nombre">Leonardo Diaz</h1>
             <h2 data-i18n="inicio.titulo">Ingeniero de Sistemas | Desarrollador de Software</h2>
             <div class="redes">
-                <a href="https://www.linkedin.com/in/leonardo-diaz-o/" target="_blank"><i
-                        class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://www.facebook.com/Leonardo.Diaz.O/" target="_blank"><i
-                        class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://github.com/LeonardoDiazO" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/leonardo-diaz-o/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/Leonardo.Diaz.O/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://github.com/LeonardoDiazO" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </section>
@@ -127,7 +124,7 @@
             </button>
             <div class="fila">
                 <div class="col">
-                    <h3 data-i18n="sobremi.titulo">Datos Personales</h3>
+                    <h3 data-i18n="sobremi.datosPersonales.titulo">Datos Personales</h3>
                     <ul>
                         <li>
                             <strong data-i18n="sobremi.datosPersonales.telefono">Teléfono</strong>
@@ -138,15 +135,14 @@
                             <span>leonardodiazingenierosistemas@gmail.com</span>
                         </li>
                         <li>
-                            <strong data-i18n="sobremi.datosPersonales.cargo">Cargo</strong>
-                            <span data-i18n="sobremi.datosPersonales.cargo">Desarrollador de software -
-                                Programador</span>
+                            <strong data-i18n="sobremi.datosPersonales.cargoLabel">Cargo</strong>
+                            <span data-i18n="sobremi.datosPersonales.cargo">Desarrollador de software</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col">
-                    <h3 data-i18n="sobremi.titulo">Intereses</h3>
+                    <h3 data-i18n="sobremi.intereses.titulo">Intereses</h3>
                     <div class="contenedor-intereses">
                         <div class="interes">
                             <i class="fa-solid fa-code"></i>
@@ -355,7 +351,7 @@
 
     <section id="portfolio" class="portfolio" data-aos="fade-up">
         <div class="contenido-seccion">
-            <h2>PORTFOLIO</h2>
+            <h2 data-i18n="portfolio.titulo">PORTFOLIO</h2>
             <div class="galeria">
                 <div class="proyecto">
                     <img src="img/proyecto1.png" alt="CRUD Spring Boot + Angular - Sistema de Gestión de Empleados"
