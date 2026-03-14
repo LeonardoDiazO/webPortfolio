@@ -130,6 +130,11 @@ const translations = {
                 title: "Dashboard de Ventas",
                 desc: "Vue.js y Firebase",
                 link: "Ver Proyecto"
+            },
+            proj5: {
+                title: "StudyAI",
+                desc: "Convierte PDFs en cursos interactivos con IA",
+                link: "Ver Proyecto"
             }
         },
         stats: {
@@ -275,6 +280,11 @@ const translations = {
             proj4: {
                 title: "Sales Dashboard",
                 desc: "Vue.js and Firebase",
+                link: "View Project"
+            },
+            proj5: {
+                title: "StudyAI",
+                desc: "Turn PDFs into interactive AI-powered courses",
                 link: "View Project"
             }
         },
