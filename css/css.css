@@ -338,55 +338,107 @@ body.light-theme .contenedor-header {
 
 /* SECCION I N I C I O */
 .inicio {
-    background: linear-gradient(to top, rgba(13, 10, 31, 0.8), rgba(13, 10, 31, 1)),
-        /* This gradient might need adjustment for light theme */
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 45, 149, 0.08) 0%, transparent 70%),
+        linear-gradient(to bottom, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 1)),
         url(img/fondo.jpg);
     color: var(--texto-principal);
     background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Organic wave curves — top-right corner (matches redesign) */
+.inicio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 520px;
+    height: 520px;
+    background:
+        radial-gradient(ellipse 60% 50% at 85% 20%, rgba(255, 45, 149, 0.13) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 60% at 95% 60%, rgba(255, 45, 149, 0.07) 0%, transparent 55%);
+    pointer-events: none;
+}
+
+/* SVG wave rings — organic curves like redesign */
+.inicio::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 480px;
+    height: 480px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480' fill='none'%3E%3Cellipse cx='340' cy='140' rx='200' ry='130' stroke='rgba(255,45,149,0.12)' stroke-width='1.5'/%3E%3Cellipse cx='360' cy='160' rx='250' ry='170' stroke='rgba(255,45,149,0.08)' stroke-width='1'/%3E%3Cellipse cx='320' cy='120' rx='150' ry='90' stroke='rgba(255,45,149,0.09)' stroke-width='1'/%3E%3Cellipse cx='380' cy='180' rx='300' ry='210' stroke='rgba(255,45,149,0.05)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
 }
 
 .inicio .contenido-banner {
-    padding: 28px 30px;
-    background: linear-gradient(135deg, rgb(146, 43, 95), rgba(255, 45, 149, 0.02));
-    backdrop-filter: blur(6px) saturate(120%);
-    -webkit-backdrop-filter: blur(6px) saturate(120%);
-    max-width: 700px;
+    padding: 40px 40px;
+    background: transparent;
+    max-width: 600px;
     margin: auto;
     text-align: center;
     border-radius: 18px;
     position: relative;
-    transition: background-color 0.4s ease, transform 0.3s ease;
-    /* Smooth theme transition */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    z-index: 1;
+    transition: transform 0.3s ease;
 }
 
 .inicio .contenido-banner img {
-    margin-top: 10px;
-    border: 6px solid rgba(0, 0, 0, 0.12);
+    border: 4px solid var(--accent);
     display: block;
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     margin: 0 auto;
     border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(255, 45, 149, 0.15), 0 0 30px rgba(255, 45, 149, 0.35);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.inicio .contenido-banner img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 8px rgba(255, 45, 149, 0.2), 0 0 50px rgba(255, 45, 149, 0.5);
+}
+
 .inicio .contenido-banner h1 {
-    color: var(--accent);
+    color: var(--texto-principal);
     margin-top: 18px;
-    font-size: 38px;
+    font-size: 52px;
     font-family: 'Righteous';
+    letter-spacing: -1px;
+    line-height: 1.1;
     transition: color 0.4s ease, transform 0.3s ease;
-    /* Smooth theme transition */
+}
+
+.inicio .contenido-banner h1 span.accent-name {
+    color: var(--accent);
 }
 
 .inicio .contenido-banner h2 {
-    font-size: 15px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--texto-secundario);
+    background: rgba(255, 45, 149, 0.12);
+    border: 1px solid rgba(255, 45, 149, 0.3);
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.inicio .contenido-banner h2::after {
+    display: none;
 }
 
 .inicio .contenido-banner .redes a {
@@ -544,6 +596,78 @@ body.light-theme .contenedor-header {
     width: 100%;
 }
 
+/* ABOUT HERO ROW — 2-column layout matching redesign */
+.about-hero-row {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.about-bio-col {
+    flex: 1.4;
+    min-width: 0;
+}
+
+.about-stats-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+/* ABOUT INLINE STATS */
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about-stat {
+    background: var(--fondo-secundario);
+    border: 1px solid rgba(255, 45, 149, 0.2);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.about-stat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+}
+
+.about-stat:hover {
+    border-color: rgba(255, 45, 149, 0.5);
+    transform: translateY(-2px);
+}
+
+.about-stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    font-family: 'Righteous', sans-serif;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 60px;
+}
+
+.about-stat-label {
+    font-size: 12px;
+    color: var(--texto-secundario);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
 /* SECCION S K I L L S */
 .skills {
     background-color: var(--fondo-principal);
@@ -581,20 +705,30 @@ body.light-theme .contenedor-header {
 }
 
 .skills .skill>span {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.skills .skill>span::after {
+    content: attr(data-percent) '%';
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13px;
 }
 
 .skills .skill .barra-skill {
-    height: 8px;
-    width: 80%;
-    background-color: var(--fondo-secundario);
-    /* Uses secondary background for theme consistency */
+    height: 6px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
     position: relative;
-    margin-bottom: 30px;
+    overflow: hidden;
+    margin-bottom: 24px;
     transition: background-color 0.4s ease;
-    /* Smooth theme transition */
 }
 
 .barra-skill {
@@ -621,12 +755,11 @@ body.light-theme .contenedor-header {
 }
 
 .skills .skill .progreso {
-    background-color: var(--accent-hover);
-    /* Uses accent hover color from theme */
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
     position: absolute;
     top: 0;
     left: 0;
-    height: 8px;
+    height: 100%;
 }
 
 .skills .skill .barra-skill span {
@@ -727,7 +860,23 @@ footer .redes a {
 }
 
 .curriculum .fila .item h4 {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--texto-principal);
+}
+
+.curriculum .fila .item .item-tag {
+    display: inline-block;
+    background: rgba(255, 45, 149, 0.12);
+    border: 1px solid rgba(255, 45, 149, 0.3);
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
     margin-bottom: 10px;
 }
 
@@ -868,9 +1017,8 @@ footer .redes a {
 
 /* Efecto de overlay */
 .portfolio .proyecto .overlay {
-    background: linear-gradient(180deg, rgba(0, 255, 110, 0.95), rgba(0, 160, 80, 0.95));
-    color: var(--fondo-principal);
-    /* Text color adjusts to new background */
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.9) 0%, rgba(255, 45, 149, 0.85) 100%);
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -881,6 +1029,7 @@ footer .redes a {
     transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
     border-radius: 8px;
     padding: 18px;
+    border: 1px solid rgba(255, 45, 149, 0.3);
     transform: translateY(8px) scale(0.98);
 }
 
@@ -943,9 +1092,9 @@ footer .redes a {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    max-width: 1100px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -954,8 +1103,22 @@ footer .redes a {
     padding: 30px;
     background: var(--fondo-principal);
     border-radius: 12px;
+    border: 1px solid rgba(255, 45, 149, 0.2);
     box-shadow: var(--sombra-accent);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    border-radius: 12px 12px 0 0;
 }
 
 .stat-card:hover {
@@ -1221,6 +1384,15 @@ button:focus:not(:focus-visible) {
 }
 
 @media screen and (max-width:700px) {
+    .about-hero-row {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .about-stats-col {
+        min-width: unset;
+    }
+
     .sobremi .fila {
         display: block;
     }
@@ -1301,6 +1473,7 @@ img {
    (imágenes disabled, pero links del overlay siguen funcionando) */
 .proyecto a,
 .inicio .redes a,
+.inicio .contenido-banner img,
 footer .redes a,
 .arriba,
 nav a,

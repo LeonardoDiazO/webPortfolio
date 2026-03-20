@@ -33,6 +33,15 @@ function initSkillAnimations() {
     const skillsSection = document.getElementById("skills");
     if (!skillsSection) return;
 
+    // Propagate data-percent to the skill label span for CSS ::after display
+    document.querySelectorAll(".skills .skill").forEach(skill => {
+        const progreso = skill.querySelector(".progreso");
+        const label = skill.querySelector("span");
+        if (progreso && label) {
+            label.setAttribute("data-percent", progreso.getAttribute("data-percent") || 0);
+        }
+    });
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

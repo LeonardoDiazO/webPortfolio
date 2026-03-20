@@ -33,6 +33,9 @@ const translations = {
                 codigoabierto: "CÓDIGO ABIERTO",
             },
             botonCV: "Descargar CV",
+            stats: {
+                proyectos: "Proyectos",
+            },
         },
         skills: {
             titulo: "Skills",
@@ -184,6 +187,9 @@ const translations = {
                 codigoabierto: "OPEN SOURCE",
             },
             botonCV: "Download CV",
+            stats: {
+                proyectos: "Projects",
+            },
         },
         skills: {
             titulo: "Skills",

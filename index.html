@@ -101,7 +101,7 @@
                 <img src="img/perfil.png" alt="Foto de perfil de Leonardo Díaz, Ingeniero de Sistemas">
             </div>
             <h1 data-i18n="inicio.nombre">Leonardo Diaz</h1>
-            <h2 data-i18n="inicio.titulo">Ingeniero de Sistemas | Desarrollador de Software</h2>
+            <h2 data-i18n="inicio.titulo">Software Engineer · Full Stack Developer</h2>
             <div class="redes">
                 <a href="https://www.linkedin.com/in/leonardo-diaz-o/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="https://www.facebook.com/Leonardo.Diaz.O/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -113,19 +113,42 @@
     <section id="sobremi" class="sobremi" data-aos="fade-up">
         <div class="contenido-seccion">
             <h2 data-i18n="sobremi.titulo">Sobre Mí</h2>
-            <p data-i18n="sobremi.descripcion">
-                Hola, soy Leonardo Diaz. Soy Ingeniero de Sistemas con más de 3 años de experiencia en desarrollo de
-                software, especializado en tecnologías modernas como Angular, Node.js y Java. Me apasiona crear
-                soluciones tecnológicas eficientes, escalables y centradas en el usuario. Además, mi experiencia previa
-                como líder de ventas en productos de gran consumo me ha brindado habilidades sólidas en gestión de
-                equipos, enfoque al cliente y cumplimiento de objetivos estratégicos.
-            </p>
 
-            <button id="download-cv"
-                onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
-                <span data-i18n="sobremi.botonCV">Descargar CV</span> <i class="fa-solid fa-download"></i>
-                <span class="overlay"></span>
-            </button>
+            <!-- 2-column hero row: bio left / stats right (matches redesign) -->
+            <div class="about-hero-row">
+                <div class="about-bio-col">
+                    <p data-i18n="sobremi.descripcion">
+                        Hola, soy Leonardo Diaz. Soy Ingeniero de Sistemas con más de 3 años de experiencia en
+                        desarrollo de software, especializado en tecnologías modernas como Angular, Node.js y Java.
+                        Me apasiona crear soluciones tecnológicas eficientes, escalables y centradas en el usuario.
+                        Además, mi experiencia previa como líder de ventas en productos de gran consumo me ha brindado
+                        habilidades sólidas en gestión de equipos, enfoque al cliente y cumplimiento de objetivos
+                        estratégicos.
+                    </p>
+                    <button id="download-cv"
+                        onclick="window.open('https://drive.google.com/file/d/1EeJX6enIVC65TZjKCTk-JAOmWCEiwh2X/view?usp=drive_link')">
+                        <span data-i18n="sobremi.botonCV">Descargar CV</span> <i class="fa-solid fa-download"></i>
+                        <span class="overlay"></span>
+                    </button>
+                </div>
+                <div class="about-stats-col">
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="about-stat-number">3+</span>
+                            <span class="about-stat-label" data-i18n="stats.experience">Años Exp.</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">5+</span>
+                            <span class="about-stat-label" data-i18n="sobremi.stats.proyectos">Proyectos</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">20%</span>
+                            <span class="about-stat-label" data-i18n="stats.efficiency">Eficiencia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="fila">
                 <div class="col">
                     <h3 data-i18n="sobremi.datosPersonales.titulo">Datos Personales</h3>
@@ -255,10 +278,6 @@
         <div class="contenido-seccion">
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">3+</div>
-                    <div class="stat-label" data-i18n="stats.experience">Años de Experiencia</div>
-                </div>
-                <div class="stat-card">
                     <div class="stat-number">20%</div>
                     <div class="stat-label" data-i18n="stats.efficiency">Mejora de Eficiencia</div>
                 </div>
@@ -282,6 +301,7 @@
                 <div class="col izquierda">
                     <h3 data-i18n="curriculum.educacion">Educación</h3>
                     <div class="item izq">
+                        <span class="item-tag">Educación</span>
                         <h4 data-i18n="curriculum.edu1.titulo">Ingeniería de Sistemas y Computación</h4>
                         <span class="casa" data-i18n="curriculum.edu1.institucion">Universidad CUL</span>
                         <span class="fecha" data-i18n="curriculum.edu1.fecha">2024</span>
@@ -292,6 +312,7 @@
                         </div>
                     </div>
                     <div class="item izq">
+                        <span class="item-tag">Educación</span>
                         <h4 data-i18n="curriculum.edu2.titulo">Diplomado en Seguridad Informática</h4>
                         <span class="casa" data-i18n="curriculum.edu2.institucion">Universidad CUL</span>
                         <span class="fecha" data-i18n="curriculum.edu2.fecha">2023</span>
@@ -302,6 +323,7 @@
                         </div>
                     </div>
                     <div class="item izq">
+                        <span class="item-tag">Educación</span>
                         <h4 data-i18n="curriculum.edu3.titulo">Bachiller Académico</h4>
                         <span class="casa" data-i18n="curriculum.edu3.institucion">Colegio Distrital Olaya</span>
                         <span class="fecha" data-i18n="curriculum.edu3.fecha">2007</span>
@@ -316,6 +338,7 @@
                 <div class="col derecha">
                     <h3 data-i18n="curriculum.experiencia">Experiencia Profesional</h3>
                     <div class="item der">
+                        <span class="item-tag">Experiencia</span>
                         <h4 data-i18n="curriculum.exp1.titulo">Desarrollador de Software</h4>
                         <span class="casa" data-i18n="curriculum.exp1.empresa">Hypersoft</span>
                         <span class="fecha" data-i18n="curriculum.exp1.fecha">22/06/2022 - Actualmente (Barranquilla,
@@ -333,6 +356,7 @@
                     </div>
 
                     <div class="item der">
+                        <span class="item-tag">Experiencia</span>
                         <h4 data-i18n="curriculum.exp2.titulo">Jefe Comercial</h4>
                         <span class="casa" data-i18n="curriculum.exp2.empresa">Almacenes Exito</span>
                         <span class="fecha" data-i18n="curriculum.exp2.fecha">01/06/2011 - 22/06/2022 (Barranquilla,
